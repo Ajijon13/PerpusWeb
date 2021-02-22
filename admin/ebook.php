@@ -14,21 +14,11 @@ if (empty($_SESSION['username'])){
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="keywords" content="Perpustakaan SMPN 2 PACIRAN">
     <!-- bootstrap 3.0.2 -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="assets/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-    <!-- Morris chart -->
-    <link href="assets/css/morris/morris.css" rel="stylesheet" type="text/css" />
-    <!-- jvectormap -->
-    <link href="assets/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
-    <!-- Date Picker -->
-    <link href="assets/css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
-    <!-- fullCalendar -->
-    <!-- <link href="css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" /> -->
-    <!-- Daterange picker -->
-    <link href="assets/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <!-- iCheck for checkboxes and radio inputs -->
     <link href="assets/css/iCheck/all.css" rel="stylesheet" type="text/css" />
     <!-- bootstrap wysihtml5 - text editor -->
@@ -37,20 +27,13 @@ if (empty($_SESSION['username'])){
     <!-- Theme style -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-          <![endif]-->
+    <!-- datatable -->
+    <link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap.min.css" type="text/css"/>
 
     <style type="text/css">
 
     </style>
 </head>
-
 <body class="skin-black">
     <!-- header logo: style can be found in header.less -->
     <header class="header">
@@ -164,46 +147,45 @@ $_SESSION['start_time'] = time();
                                                 id="form_tambah_buku">
 
                                                 <div class="form-group">
-                                                    <label class="col-sm-4 control-label">Judul</label>
-                                                    <div class="col-sm-4">
+                                                    <label class="col-sm-3 control-label text-right">Judul</label>
+                                                    <div class="col-sm-8">
                                                         <input name="judul" type="text" class="form-control"
                                                             autocomplete="off" placeholder="Judul Buku" required="" />
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-sm-4 control-label">Pengarang</label>
-                                                    <div class="col-sm-4">
+                                                    <label class="col-sm-3 control-label text-right">Pengarang</label>
+                                                    <div class="col-sm-8">
                                                         <input name="pengarang" type="text" class="form-control"
                                                             autocomplete="off" placeholder="Pengarang" required="" />
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-sm-4 control-label">Penerbit & Tempat
-                                                        Terbit</label>
-                                                    <div class="col-sm-4">
+                                                    <label class="col-sm-3 control-label text-right">Penerbit & Tempat Terbit</label>
+                                                    <div class="col-sm-8">
                                                         <input name="tempatdanpenerbit" type="text" class="form-control"
                                                             autocomplete="off" placeholder="Penerbit & Tempat Terbit"
                                                             required="" />
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-sm-4 control-label">ISBN</label>
-                                                    <div class="col-sm-4">
+                                                    <label class="col-sm-3 control-label text-right">ISBN</label>
+                                                    <div class="col-sm-8">
                                                         <input name="isbn" type="text" class="form-control"
                                                             autocomplete="off" placeholder="Isbn" required="" />
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-sm-4 control-label">Jumlah Halaman</label>
-                                                    <div class="col-sm-4">
+                                                    <label class="col-sm-3 control-label text-right">Jumlah Halaman</label>
+                                                    <div class="col-sm-8">
                                                         <input name="jumlahhalaman" type="text" class="form-control"
                                                             autocomplete="off" placeholder="Jumlah Halaman"
                                                             required="" />
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-sm-4 control-label">Kategori</label>
-                                                    <div class="col-sm-4">
+                                                    <label class="col-sm-3 control-label text-right">Kategori</label>
+                                                    <div class="col-sm-8">
                                                         <select name="kategori" type="text" class="form-control"
                                                             autocomplete="off" placeholder="Pilih Kategori" required="">
                                                             <option value="">Pilih Kategori</option>
@@ -226,21 +208,21 @@ $_SESSION['start_time'] = time();
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="col-sm-4 control-label">File</label>
-                                                    <div class="col-sm-6">
-                                                        <input name="file_ebook" type="file" />
+                                                    <label class="col-sm-3 control-label text-right">File</label>
+                                                    <div class="col-sm-8">
+                                                        <input name="file_ebook" type="file" accept="application/pdf"/>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="col-sm-4 control-label">Pilih Gambar</label>
+                                                    <label class="col-sm-3 control-label text-right">Pilih Gambar</label>
                                                     <div class="col-sm-8">
-                                                        <input name="gambar_ebook" type="file" />
+                                                        <input name="gambar_ebook" type="file" accept="image/*"/>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group" style="margin-bottom: 20px;">
-                                                    <label class="col-sm-4 control-label"></label>
+                                                    <label class="col-sm-3 control-label text-right"></label>
                                                     <div class="col-sm-8">
                                                         <button id="button_tambah_buku" type="submit"
                                                             class="btn btn-primary">Upload</button>
@@ -250,8 +232,7 @@ $_SESSION['start_time'] = time();
 
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-default"
-                                                data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Keluar</button>
                                         </div>
                                     </div>
 
@@ -283,7 +264,7 @@ $_SESSION['start_time'] = time();
                     }
                     $tampil=mysql_query($query1) or die(mysql_error());
                     ?>
-                                <table id="example" class="table table-hover table-bordered">
+                                <table id="DataTable_ebook" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>
@@ -296,7 +277,7 @@ $_SESSION['start_time'] = time();
                                                 <center>Kategori </center>
                                             </th>
                                             <th>
-                                                <center>File Pdf</center>
+                                                <center>Penerbit & Tempat Terbit</center>
                                             </th>
                                             <th>
                                                 <center>Gambar Sampul</center>
@@ -310,34 +291,36 @@ $_SESSION['start_time'] = time();
                     { ?>
                                     <tbody>
                                         <tr>
-                                            <td><a href="detail-ebook.php?hal=edit&kd=<?php echo $data['id'];?>"><span
-                                                        class="fa fa-book"></span> <?php echo $data['judul']; ?></a>
+                                            <td><a class="detail-link" href="detail-ebook.php?hal=edit&kd=<?php echo $data['id'];?>"><span class="fa fa-book"></span> <?php echo $data['judul']; ?></a>
                                             </td>
                                             <td><?php echo $data['pengarang'];?></td>
                                             <td><?php echo $data['kategori'];?></td>
-                                            <td><?php echo $data['file_ebook'];?></td>
+                                            <td><?php echo $data['tempatdanpenerbit'];?></td>
                                             <td>
-                                                <center><img src="sampul_ebook/<?php echo $data['gambar_ebook']; ?>"
-                                                        height="100" width="100" style="border: 1px solid #333333;" />
+                                                <center><img src="sampul_ebook/<?php echo $data['gambar_ebook']; ?>" height="100" width="100" style="border: 1px solid #333333;" />
                                                 </center>
                                             </td>
                                             <td>
                                                 <center>
-                                                    <div id="thanks"><a class="btn btn-sm btn-primary"
-                                                            data-placement="bottom" data-toggle="tooltip"
-                                                            title="Edit E-Book"
-                                                            href="edit-ebook.php?hal=edit&kd=<?php echo $data['id'];?>"><span
-                                                                class="glyphicon glyphicon-edit"></span></a>
-                                                        <a onclick="return confirm ('Anda Yakin Menghapus Data <?php echo $data['judul'];?>.?');"
-                                                            class="btn btn-sm btn-danger tooltips"
-                                                            data-placement="bottom" data-toggle="tooltip"
-                                                            title="Hapus E-Book"
-                                                            href="hapus-ebook.php?hal=hapus&kd=<?php echo $data['id'];?>"><span
-                                                                class="glyphicon glyphicon-trash"></a>
+                                                    <div id="thanks">
+                                                        
+                                                    <a class="btn btn-sm btn-primary"
+                                                        data-placement="bottom"
+                                                        title="Edit E-Book"
+                                                        onclick="OpenModalEdit(<?php echo $data['id'];?>);">
+                                                        <span>Edit</span>
+                                                    </a>
+
+                                                        
+                                                    <a  class="delete-link" 
+                                                        data-placement="bottom" 
+                                                        title="Hapus E-Book"
+                                                        href="hapus-ebook.php?hal=hapus&kd=<?php echo $data['id'];?>" data-placement="bottom">
+                                                        <span class="btn btn-sm btn-danger" >Hapus</span></a>
                                                 </center>
                                             </td>
                                         </tr>
-                            </div>
+                      
 
                             <?php   
               } 
@@ -346,8 +329,8 @@ $_SESSION['start_time'] = time();
                             </table>
 
                             <?php $tampil=mysql_query("select * from data_ebook order by id");
-                        $ebook=mysql_num_rows($tampil);
-                    ?>
+                                $ebook=mysql_num_rows($tampil);
+                            ?>
                             <center>
                                 <h4>Jumlah Buku : <?php echo "$ebook"; ?> Eksemplar </h4>
                             </center>
@@ -366,13 +349,139 @@ $_SESSION['start_time'] = time();
 
     </div><!-- ./wrapper -->
 
+    <!--modal edit -->
+
+    <!-- Modal -->
+    <div id="modal_edit" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit E-Book</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <form class="form-horizontal style-form" style="margin-top: 20px;"
+                                        id="form_edit_buku">
+                                        <div class="form-group">
+                                            <div class="col-sm-4">
+                                                <input name="id" type="hidden" id="edit-id" class="form-control"
+                                                    autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" col-sm-4 control-label">Judul</label>
+                                            <div class="col-sm-4">
+                                                <input name="judul" type="text" id="edit-judul" class="form-control"
+                                                    autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Pengarang</label>
+                                            <div class="col-sm-4">
+                                                <input name="pengarang" type="text" id="edit-pengarang" class="form-control"
+                                                    autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Penerbit & Tempat Terbit</label>
+                                            <div class="col-sm-4">
+                                                <input name="tempatdanpenerbit" type="text" id="edit-tempatdanpenerbit"
+                                                    class="form-control" autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">ISBN</label>
+                                            <div class="col-sm-4">
+                                                <input name="isbn" type="text" id="edit-isbn" class="form-control"
+                                                    autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Jumlah Halaman</label>
+                                            <div class="col-sm-4">
+                                                <input name="jumlahhalaman" type="text" id="edit-jumlahhalaman"
+                                                    class="form-control" autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Kategori</label>
+                                            <div class="col-sm-4">
+                                                <select name="kategori" type="text" id="edit-kategori" class="form-control"
+                                                    autocomplete="off" value="" required="">
+                                                    <option value="">Pilih Kategori</option>
+                                                    <option value="000 Karya Umum">000 Karya Umum</option>
+                                                    <option value="100 Filsafat">100 Filsafat</option>
+                                                    <option value="200 Agama">200 Agama</option>
+                                                    <option value="300 Ilmu-ilmu Sosial">300 Ilmu-ilmu Sosial</option>
+                                                    <option value="400 Bahasa">400 Bahasa</option>
+                                                    <option value="500 Ilmu-ilmu Murni">500 Ilmu-ilmu Murni</option>
+                                                    <option value="600 Teknologi">600 Teknologi</option>
+                                                    <option value="700 Seni & Olahraga">700 Seni & Olahraga</option>
+                                                    <option value="800 Sastra">800 Sastra</option>
+                                                    <option value="900 Geografi & Sejarah">900 Geografi & Sejarah
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">File E-Book</label>
+                                            <div class="col-sm-4">
+                                                <span class="help-block">Silahkan memilih file pdf untuk di
+                                                    update</span>
+                                                <embed src="" alt="File Pdf" style="margin-bottom: 10px;" /><br />
+                                                <input name="file_ebook" type="file" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">File gambar</label>
+                                            <div class="col-sm-4">
+                                                <img id="edit-gambar_ebook" height="150" width="150" class="img-circle"
+                                                    style="border: 3px solid black;" />
+                                                <span class="help-block">Silahkan memilih file gambar untuk di
+                                                    update</span>
+                                                <input name="gambar_ebook" type="file" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" style="margin-bottom: 20px;">
+                                            <label class="col-sm-4  control-label"></label>
+                                            <div class="col-sm-4">
+                                                <input type="submit" name="upload" value="Update"
+                                                    class="btn btn-sm btn-primary" />
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Keluar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <!-- jQuery 2.0.2 -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>-->
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>-->
     <script src="assets/js/jquery.min.js" type="text/javascript"></script>
 
     <!-- jQuery UI 1.10.3 -->
     <script src="assets/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- daterangepicker -->
@@ -380,20 +489,19 @@ $_SESSION['start_time'] = time();
 
     <script src="assets/js/plugins/chart.js" type="text/javascript"></script>
 
-    <!-- datepicker
-        <script src="js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>-->
-    <!-- Bootstrap WYSIHTML5
-        <script src="js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>-->
-    <!-- iCheck -->
-    <script src="assets/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-    <!-- calendar -->
-    <script src="assets/js/plugins/fullcalendar/fullcalendar.js" type="text/javascript"></script>
-
     <!-- Director App -->
     <script src="assets/js/Director/app.js" type="text/javascript"></script>
 
     <!-- Director dashboard demo (This is only for demo purposes) -->
     <script src="assets/js/Director/dashboard.js" type="text/javascript"></script>
+
+    <script src="assets/js/sweetalert2.all.min.js" type="text/javascript"></script>
+
+    <!-- data tabel-->
+    <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
+    <!-- datatable -->
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
 
     <!-- Director for demo purposes -->
     <script type="text/javascript">
@@ -422,40 +530,11 @@ $_SESSION['start_time'] = time();
             radioClass: 'iradio_flat-grey'
         });
     </script>
-    <script type="text/javascript">
-        $(function () {
-            "use strict";
-            //BAR CHART
-            var data = {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
-                datasets: [{
-                        label: "My First dataset",
-                        fillColor: "rgba(220,220,220,0.2)",
-                        strokeColor: "rgba(220,220,220,1)",
-                        pointColor: "rgba(220,220,220,1)",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(220,220,220,1)",
-                        data: [65, 59, 80, 81, 56, 55, 40]
-                    },
-                    {
-                        label: "My Second dataset",
-                        fillColor: "rgba(151,187,205,0.2)",
-                        strokeColor: "rgba(151,187,205,1)",
-                        pointColor: "rgba(151,187,205,1)",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(151,187,205,1)",
-                        data: [28, 48, 40, 19, 86, 27, 90]
-                    }
-                ]
-            };
-            new Chart(document.getElementById("linechart").getContext("2d")).Line(data, {
-                responsive: true,
-                maintainAspectRatio: false,
-            });
 
-        });
+    <script>
+    $(document).ready( function () {
+        $('#DataTable_ebook').DataTable();
+    } );
     </script>
 
     <script>
@@ -476,17 +555,112 @@ $_SESSION['start_time'] = time();
                     processData: false,
                     success:function(data){
                         
+                        if(data.status == "berhasil"){ 
+                            Swal.fire({
+                            icon: 'success',
+                            title: 'Sukses',
+                            text: data.pesan
+                            }).then(() => {
+                                location.reload();
+                            });
+                        }
+                        else if(data.status == "gagal"){ 
+                            Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal',
+                            text: data.pesan
+                            }).then(() => {
+                                location.reload();
+                            });        
+                        }
+                       
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                       alert("Error, Coba cek lagi");
+                    }
+                });
+
+            });
+
+            //modal edit buku
+            function OpenModalEdit(id){
+
+                //get existing data
+                var formdata = new FormData();
+                formdata.append('id', id);
+                formdata.append('usage', 'get-data');
+                $.ajax({
+                    type:'POST',
+                    dataType: 'json',
+                    url: 'edit-ebook.php',
+                    data:formdata,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success:function(data){
+                        
                         if(data.status == "sukses"){
-                            alert("Sukses, " + data.pesan);
+
+                            $('#edit-id').val(data.data.id);
+                            $('#edit-judul').val(data.data.judul);
+                            $('#edit-pengarang').val(data.data.pengarang);
+                            $('#edit-tempatdanpenerbit').val(data.data.tempatdanpenerbit);
+                            $('#edit-isbn').val(data.data.isbn);
+                            $('#edit-jumlahhalaman').val(data.data.jumlahhalaman);
+                            $('#edit-kategori').val(data.data.kategori);
+                            $('#edit-gambar_ebook').attr("src","sampul_ebook/" + data.data.gambar_ebook)
+                            $('#modal_edit').modal('show');
+                            
                         }
                         else{
-                            alert("Gagal, " + data.pesan);                            
+                            alert(data.pesan);
                         }
-                        location.reload();
 
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
-                       alert("Error, mohon hubungi admin");
+                        alert("Error, Coba Cek Lagi");
+                    }
+                });
+
+            }
+
+            //modal edit save buku
+            $("#form_edit_buku").submit(function (event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                console.log(formData);
+
+                $.ajax({
+                    type:'POST',
+                    dataType: 'json',
+                    url: 'update-ebook.php',
+                    data:formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success:function(data){
+                        
+                        if(data.status == "berhasil"){ 
+                            Swal.fire({
+                            icon: 'success',
+                            title: 'Sukses',
+                            text: data.pesan
+                            }).then(() => {
+                                location.reload();
+                            });
+                        }
+                        else if(data.status == "gagal"){ 
+                            Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal',
+                            text: data.pesan
+                            }).then(() => {
+                                location.reload();
+                            });        
+                        }                         
+                    }, 
+                    error: function (xhr, ajaxOptions, thrownError) {
+                       alert("Error, Coba cek lagi");
                     }
                 });
 
@@ -494,6 +668,43 @@ $_SESSION['start_time'] = time();
 
     </script>
 
+    <script> 
+            $('.delete-link').on('click',function(e){
+                e.preventDefault();
+                const href = $(this).attr('href')
+
+                swal.fire({
+                        icon : 'warning',
+                        title: 'Perhatian',
+                        text : 'Apakah Anda Ingin Mengahapus Data ini?',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor : '#d33',
+                        confirmButtonText : 'Hapus Data',
+                        cancelButtonText : 'Batal',
+                }).then((result) => {
+                    if (result.value){
+                        document.location.href = href;
+                    }
+                });
+            });
+    </script>
+
+    <script> 
+            $('.detail-link').on('click',function(e){
+                e.preventDefault();
+                const href = $(this).attr('href')
+
+                Swal.fire({
+                title: '<strong>Detail E-book</strong>',
+                type: 'info',
+                Url: 'detail-ebook.php',
+                showCloseButton: true,
+                focusConfirm: false,
+                
+            });
+        });
+    </script>
 </body>
 
 </html>

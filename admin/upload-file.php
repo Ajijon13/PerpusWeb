@@ -24,7 +24,7 @@
                     if($query){
 
                         $data = array(
-                            "status" => "sukses",
+                            "status" => "berhasil",
                             "pesan" => "Data berhasil diupload"
                         );
                         header('Content-Type: application/json');
@@ -37,7 +37,7 @@
                             "pesan" => "Data gagal diupload"
                         );
                         header('Content-Type: application/json');
-                        echo json_encode($data);;
+                        echo json_encode($data);
                     }
                 }
                 else{

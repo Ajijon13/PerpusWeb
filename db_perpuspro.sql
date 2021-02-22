@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Apr 26, 2017 at 04:18 AM
--- Server version: 5.5.54-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.21
+-- Host: 127.0.0.1
+-- Generation Time: Feb 18, 2021 at 04:25 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `db_perpuspro`
@@ -26,154 +26,478 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
-  `user_id` int(2) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admin` (
+  `user_id` int(2) NOT NULL,
   `username` varchar(15) NOT NULL,
   `password` varchar(15) NOT NULL,
   `fullname` varchar(30) NOT NULL,
-  `gambar` varchar(30) NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `gambar` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`user_id`, `username`, `password`, `fullname`, `gambar`) VALUES
-(1, 'operator', 'operator', 'Sarjana Komedi', 'gambar_admin/avatar5.png'),
-(2, 'admin', 'admin', 'Sarjana Komedi', 'gambar_admin/4.jpg');
+(1, 'g', 'g', 'g', 'gambar_admin/foto guru.jpg'),
+(2, 'admin', 'admin', 'admin keren', 'gambar_admin/afidah.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_anggota`
+-- Table structure for table `berita`
 --
 
-CREATE TABLE IF NOT EXISTS `data_anggota` (
-  `id` int(4) NOT NULL AUTO_INCREMENT,
-  `no_induk` varchar(5) NOT NULL,
-  `nama` varchar(150) NOT NULL,
-  `jk` varchar(2) NOT NULL,
-  `kelas` varchar(5) NOT NULL,
-  `ttl` varchar(100) NOT NULL,
-  `alamat` varchar(250) NOT NULL,
-  `foto` varchar(75) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+CREATE TABLE `berita` (
+  `id` int(11) NOT NULL,
+  `keterangan` longtext NOT NULL,
+  `gambar_berita` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `data_anggota`
+-- Dumping data for table `berita`
 --
 
-INSERT INTO `data_anggota` (`id`, `no_induk`, `nama`, `jk`, `kelas`, `ttl`, `alamat`, `foto`) VALUES
-(1, '15901', 'AGUNG SANTOSO', 'L', '9a', 'Cikarang, 4 Agustus 1997', 'Kp. Wangkal, Cikarang Barat', 'gambar_anggota/26115.jpg'),
-(2, '15902', 'AHMAD MUCHTADIN', 'L', '9c', 'Bekasi, 27 Januari 1998', 'Cabang Lio, Cikarang Utara', 'gambar_anggota/Assy enggine.jpg'),
-(3, '15903', 'HAMRI AJAH', 'L', '9b', 'Cikarang, 30 Januari 1997', 'Rawa Bangkong, Cikarang Timur', 'gambar_anggota/009.jpg'),
-(4, '15904', 'ANI ANILAH', 'P', '9b', 'Cikarang, 20 Januari 1992', 'Sasak Bali, Sukatani', 'gambar_anggota/c.jpg'),
-(5, '15905', 'RYAN SUPRIATNA', 'L', '9b', 'Cikarang, 9 Agustus 1995', 'Sukatani, Cikarang', 'gambar_anggota/ko caci.jpg'),
-(6, '15906', 'LATHIFAH', 'P', '9c', 'Bekasi, 26 Juli 1997', 'Cikarang Baru', 'gambar_anggota/1098.jpg'),
-(7, '15907', 'CANTIKA PUJIASTUTI', 'P', '9a', 'Karawang, 11 April 1998', 'Tambelang, Bekasi', 'gambar_anggota/user.jpg'),
-(8, '15908', 'SEBASTIAN HADI PRASETYO', 'L', '9a', 'Bekasi, 17 Agustus 1990', 'Tambelang, Bekasi', 'gambar_anggota/26115.jpg'),
-(9, '15909', 'RAMA AGUS SUPRIYADI', 'L', '9b', 'Bogor, 29 Juli 1994', 'Cikarang, Bekasi', 'gambar_anggota/l.jpg'),
-(11, '15911', 'Sarjana Komedi', 'L', '9a', 'Bekasi, 27 September 1990', 'Bekasi, Jawa Barat, Indonesia', 'gambar_anggota/Image0205.jpg'),
-(12, '20150', 'ANTON SUGIANTO', 'L', '9b', 'Indramayu, 28 Oktober 1988', 'cikarang barat bekasi', 'gambar_anggota/2.jpg'),
-(13, '20150', 'DEDE RIZKI RAMADHAN', 'L', '9c', 'Bekasi, 30 November 1991', 'Pilar Barat, Cikarang, Bekasi', 'gambar_anggota/5.jpg');
+INSERT INTO `berita` (`id`, `keterangan`, `gambar_berita`) VALUES
+(1, 'a', 'kapal 2.png'),
+(2, 'jvouav auoavuoa aoubaou', 'rafa.png');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_buku`
+-- Table structure for table `buku_paket`
 --
 
-CREATE TABLE IF NOT EXISTS `data_buku` (
-  `id` int(5) NOT NULL AUTO_INCREMENT,
-  `judul` varchar(250) NOT NULL,
-  `pengarang` varchar(250) NOT NULL,
-  `th_terbit` varchar(4) NOT NULL,
-  `penerbit` varchar(250) NOT NULL,
-  `isbn` varchar(25) NOT NULL,
-  `kategori` varchar(50) NOT NULL,
-  `kode_klas` varchar(20) NOT NULL,
-  `jumlah_buku` int(2) NOT NULL,
-  `lokasi` varchar(50) NOT NULL,
-  `asal` varchar(50) NOT NULL,
-  `jum_temp` int(4) NOT NULL,
-  `tgl_input` varchar(75) NOT NULL,
-  `gambar` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+CREATE TABLE `buku_paket` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `pengarang` varchar(255) NOT NULL,
+  `tempatdanpenerbit` varchar(255) NOT NULL,
+  `isbn` varchar(255) NOT NULL,
+  `jumlahhalaman` varchar(255) NOT NULL,
+  `kategori` varchar(255) NOT NULL,
+  `file_buku` varchar(255) NOT NULL,
+  `gambar_buku` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `data_buku`
+-- Dumping data for table `buku_paket`
 --
 
-INSERT INTO `data_buku` (`id`, `judul`, `pengarang`, `th_terbit`, `penerbit`, `isbn`, `kategori`, `kode_klas`, `jumlah_buku`, `lokasi`, `asal`, `jum_temp`, `tgl_input`, `gambar`) VALUES
-(2, 'Membangun Toko Online Dengan PHP dan MySQL', 'Sarjana Komedi', '2015', 'Gagal Koding', 'QWERT122345566', '1300', 'XII-Utama', 10, 'Rak A1', 'Pembelian', 0, '2015-10-10 07:47:40', ''),
-(3, 'Aplikasi Penggajian Karyawan dengan PHP', 'Sarjana Komedi', '2015', 'Gagal Koding', 'QWERT1232446', '1300', 'XI-Utama', 10, 'Rak A2', 'Pembelian', 10, '2015-10-10 07:46:00', ''),
-(4, 'Membangun Aplikasi Perpustakaan Berbasis Web', 'Sarjana Komedi', '2015', 'Gagal Koding', 'QWERT12234985', '1300', 'X-Utama', 10, 'Rak A2', 'Pembelian', 9, '2015-10-10 07:44:54', ''),
-(5, 'Membangun Aplikasi Nilai Dengan PHP', 'Sarjana Komedi', '2009', 'Gagal Koding', 'QWERT12232454', '1300', 'X-Tambahan', 10, 'Rak H1', 'Pemberian Siswa', 9, '2015-10-10 07:48:50', '');
+INSERT INTO `buku_paket` (`id`, `judul`, `pengarang`, `tempatdanpenerbit`, `isbn`, `jumlahhalaman`, `kategori`, `file_buku`, `gambar_buku`) VALUES
+(3, 'Cara Pintar Coding Mudah Dengan Modal Dengkul', 'Azri Firman', 'aaaa', '23424242', '121', '900 Geografi & Sejarah', 'Bahasa Inggris (Buku Siswa) ( PDFDrive ).pdf', 'rafa.png');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengunjung`
+-- Table structure for table `data_ebook`
 --
 
-CREATE TABLE IF NOT EXISTS `pengunjung` (
-  `id` int(6) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(255) NOT NULL,
-  `jk` varchar(2) NOT NULL,
-  `kelas` varchar(17) NOT NULL,
-  `perlu1` varchar(15) NOT NULL,
-  `cari` varchar(255) NOT NULL,
-  `saran` varchar(255) NOT NULL,
-  `tgl_kunjung` date NOT NULL,
-  `jam_kunjung` time NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+CREATE TABLE `data_ebook` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `pengarang` varchar(255) NOT NULL,
+  `tempatdanpenerbit` varchar(255) NOT NULL,
+  `isbn` varchar(255) NOT NULL,
+  `jumlahhalaman` varchar(255) NOT NULL,
+  `kategori` varchar(255) NOT NULL,
+  `file_ebook` varchar(255) NOT NULL,
+  `gambar_ebook` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pengunjung`
+-- Dumping data for table `data_ebook`
 --
 
-INSERT INTO `pengunjung` (`id`, `nama`, `jk`, `kelas`, `perlu1`, `cari`, `saran`, `tgl_kunjung`, `jam_kunjung`) VALUES
-(1, 'Sebastian Hadi Prasetyo', 'L', '9a', 'Membaca', 'Antropologi', 'Pelayanan di tingkatkan lagi', '2015-10-11', '07:23:40'),
-(2, 'Sarjana Komedi', 'L', 'XII4', 'Membaca', 'Buku Pemrograman', 'Perbanyak Buku Pemrograman', '0000-00-00', '04:21:50'),
-(3, 'Niqo Bio Haqqul Yaqin', 'L', 'X2', 'Membaca', 'Buku Pemrograman', 'Tingkatkan Pelayanan', '2015-10-18', '04:23:04'),
-(4, 'Ujang Syamsuddin', 'L', 'XII5', 'Membaca', 'Buku Paket', 'Tingkatkan Pelayanan', '2015-10-19', '19:40:59'),
-(5, 'Sugiarto Cokro', 'L', 'XI5', 'Pinjam Buku', 'Biologi', 'Kalo telat jangan di denda dong.', '2015-10-19', '19:42:22'),
-(6, 'Agung Purnomo', 'L', 'XI2', 'Membaca', 'Teknik Informatika', 'Lebih ditingkatkan lagi', '2017-04-26', '03:54:30'),
-(7, 'Danu Budi Kuncoro', 'L', 'XII1', 'Membaca', 'Ilmu Komputer', 'Fasilitas meja untuk para pembaca kurang', '2017-04-26', '03:56:11'),
-(8, 'Syafira Mutia Syahida', 'P', 'XI2', 'Pinjam Buku', 'Indahnya Membangun Cinta', 'No comment', '2017-04-26', '03:57:13'),
-(9, 'Monika Widya Katerine', 'P', 'XII5', 'Membaca', 'Harap bersama Kekasih', 'Ruang perpustakaan mungkin lebih baik sering dibersihkan', '2017-04-26', '03:57:58');
+INSERT INTO `data_ebook` (`id`, `judul`, `pengarang`, `tempatdanpenerbit`, `isbn`, `jumlahhalaman`, `kategori`, `file_ebook`, `gambar_ebook`) VALUES
+(6, 'a', 'a', 'a', 'a', 'a', '700 Seni & Olahraga', 'Bahasa Inggris (Buku Siswa) ( PDFDrive ).pdf', 'kapal 2.png'),
+(7, 'a', 'a', 'a', 'a', 'a', '100 Filsafat', 'Bahasa Inggris (Buku Siswa) ( PDFDrive ).pdf', 'Bahasa Inggris (Buku Siswa) ( PDFDrive ).pdf'),
+(8, 'a', 'a', 'a', 'a', 'a', '700 Seni & Olahraga', 'Bahasa Inggris (Buku Siswa) ( PDFDrive ).pdf', 'Bahasa Inggris (Buku Siswa) ( PDFDrive ).pdf'),
+(9, 'a', 'a', 'a', 'a', 'a', '600 Teknologi', 'Bahasa Inggris (Buku Siswa) ( PDFDrive ).pdf', 'Bahasa Inggris (Buku Siswa) ( PDFDrive ).pdf'),
+(10, 'a', 'a', 'a', 'a', 'a', '800 Sastra', 'Bahasa Inggris (Buku Siswa) ( PDFDrive ).pdf', 'index .png'),
+(11, 'z', 'z', 'z', 'z', 'z', '900 Geografi & Sejarah', 'Bahasa Inggris (Buku Siswa) ( PDFDrive ).pdf', 'rafa.png'),
+(12, 'z', 'zz', 'z', 'z', 'z', '900 Geografi & Sejarah', 'Bahasa Inggris (Buku Siswa) ( PDFDrive ).pdf', 'index .png');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `trans_pinjam`
+-- Table structure for table `galeri`
 --
 
-CREATE TABLE IF NOT EXISTS `trans_pinjam` (
-  `id` int(5) NOT NULL AUTO_INCREMENT,
-  `judul_buku` varchar(250) NOT NULL,
-  `id_peminjam` int(4) NOT NULL,
-  `nama_peminjam` varchar(100) NOT NULL,
-  `tgl_pinjam` varchar(15) NOT NULL,
-  `tgl_kembali` varchar(15) NOT NULL,
-  `status` varchar(10) NOT NULL,
-  `ket` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+CREATE TABLE `galeri` (
+  `id` int(11) NOT NULL,
+  `gambar_galeri` varchar(255) NOT NULL,
+  `keterangan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `trans_pinjam`
+-- Dumping data for table `galeri`
 --
 
-INSERT INTO `trans_pinjam` (`id`, `judul_buku`, `id_peminjam`, `nama_peminjam`, `tgl_pinjam`, `tgl_kembali`, `status`, `ket`) VALUES
-(2, 'Membangun', 2, 'AHMAD', '31-10-2015', '07-11-2015', 'kembali', 'buku'),
-(3, 'Membangun', 4, 'ANTON', '31-10-2015', '07-11-2015', 'kembali', 'pinjam donk'),
-(4, 'Membangun', 5, 'SARJANA', '03-11-2015', '10-11-2015', 'pinjam', 'Referensi Skripsi');
+INSERT INTO `galeri` (`id`, `gambar_galeri`, `keterangan`) VALUES
+(1, 'downloadfile-3_2.jpg', 'aku anak indonesia'),
+(2, 'post.png', 'khycfky ckhckhchk hchjchjcm kcky'),
+(3, '2-1.jpg', 'sjlabcjlba cajlsbc ljbasjlbcjla slcjbsajlbcjlasc'),
+(4, 'rafa.png', 'absjbxjlasxas'),
+(5, 'jon copy.jpg', 'ajvsjaxasxa');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inov_layanan`
+--
+
+CREATE TABLE `inov_layanan` (
+  `id` int(11) NOT NULL,
+  `keterangan` text NOT NULL,
+  `g_inovasi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inov_layanan`
+--
+
+INSERT INTO `inov_layanan` (`id`, `keterangan`, `g_inovasi`) VALUES
+(1, 'halka;a;;a', 'biru.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `koleksi`
+--
+
+CREATE TABLE `koleksi` (
+  `id` int(11) NOT NULL,
+  `tgl_input` varchar(100) NOT NULL,
+  `koleksi` varchar(255) NOT NULL,
+  `keterangan` varchar(255) NOT NULL,
+  `jumlah` varchar(255) NOT NULL,
+  `tambahan` varchar(255) NOT NULL,
+  `total` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `koleksi`
+--
+
+INSERT INTO `koleksi` (`id`, `tgl_input`, `koleksi`, `keterangan`, `jumlah`, `tambahan`, `total`) VALUES
+(1, '2021/02/02', 'cetak', 'a', 'aa', 'a', 'a'),
+(2, '2021/02/02', 'non cetak', 'a', 'aa', 'a', 'total');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `layanan`
+--
+
+CREATE TABLE `layanan` (
+  `id` int(11) NOT NULL,
+  `keterangan` text NOT NULL,
+  `g_layanan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `layanan`
+--
+
+INSERT INTO `layanan` (`id`, `keterangan`, `g_layanan`) VALUES
+(1, 'yoi \r\nasdvavdkavdavda\r\nkasbdlkabdklabldasd\r\nadsnakdbalsbdsa\r\ndasdbkbakdbas\r\ndasdjsalbdljad\r\nasdnakskdbslabdas\r\ndasdjbasbdjlasbdljasbdas\r\ndnsadbsad\r\nkskbfdksf\r\nsdnfkdsfnldsjf', 'IMG-20200525-WA0003.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prestasi`
+--
+
+CREATE TABLE `prestasi` (
+  `id` int(11) NOT NULL,
+  `keterangan` varchar(255) NOT NULL,
+  `gambar_prestasi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `prestasi`
+--
+
+INSERT INTO `prestasi` (`id`, `keterangan`, `gambar_prestasi`) VALUES
+(1, 'Juara I Makan Se Jawa Timur Dalam Ajang Olimpiade Makan Se Indonesia', 'yyyyyy.jpg'),
+(2, 'Juara II Makan Krupuk Se Jawa Timur Dalam Ajang Olimpiade Makan Se Indonesia', '2-1.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profil`
+--
+
+CREATE TABLE `profil` (
+  `id` int(11) NOT NULL,
+  `namaperpus` varchar(255) NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `kec` varchar(255) NOT NULL,
+  `kab` varchar(255) NOT NULL,
+  `prov` varchar(255) NOT NULL,
+  `nomor` varchar(255) NOT NULL,
+  `webe` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `sk` varchar(255) NOT NULL,
+  `tahun` varchar(255) NOT NULL,
+  `npsn` varchar(255) NOT NULL,
+  `luas` varchar(255) NOT NULL,
+  `no_i` varchar(255) NOT NULL,
+  `namaks` varchar(255) NOT NULL,
+  `namakp` varchar(255) NOT NULL,
+  `nosk` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `profil`
+--
+
+INSERT INTO `profil` (`id`, `namaperpus`, `alamat`, `kec`, `kab`, `prov`, `nomor`, `webe`, `status`, `sk`, `tahun`, `npsn`, `luas`, `no_i`, `namaks`, `namakp`, `nosk`) VALUES
+(1, 'Samudera Ilmu', 'Komplek Pondok Pesantern Sunan Drajad', 'Paciran', 'Paciran', 'Lamongan', '1793479174', 'www.smpn2paciran.sch.id/samuderaillmu0@gmail.com', 'Aktif', '38648916', '2003', '186891698e6189', '971e6137 18t3et', '78t2718t871t', 'sujono', 'sugio', '8183ey8913');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `struktur`
+--
+
+CREATE TABLE `struktur` (
+  `id` int(11) NOT NULL,
+  `keterangan` varchar(255) NOT NULL,
+  `gambar` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `struktur`
+--
+
+INSERT INTO `struktur` (`id`, `keterangan`, `gambar`) VALUES
+(1, 'struktur', 'struktur.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `studibanding`
+--
+
+CREATE TABLE `studibanding` (
+  `id` int(11) NOT NULL,
+  `kunjungan` longtext NOT NULL,
+  `keterangan` varchar(255) NOT NULL,
+  `gambar_studi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `studibanding`
+--
+
+INSERT INTO `studibanding` (`id`, `kunjungan`, `keterangan`, `gambar_studi`) VALUES
+(1, 'keluar', 'SMP 22 Surabaya', '2276144.png'),
+(2, 'keluar', 'Kunjungan ke Jawa Pos Graha Gena', 'rafa.png'),
+(3, 'keluar', 'mantap jiwa saayang indonesia', 'slider-02.jpg'),
+(4, 'keluar', 'haloooooooooo', 'banner.jpg'),
+(5, 'masuk', 'qku anak indonesia sehat dan kuat', 'banner.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tatatertib`
+--
+
+CREATE TABLE `tatatertib` (
+  `id` int(11) NOT NULL,
+  `t_tertib` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tatatertib`
+--
+
+INSERT INTO `tatatertib` (`id`, `t_tertib`) VALUES
+(1, '1. tidak boleh melanggar peraruran\r\n2. tidak boleh membawa buku\r\n3. harus tenang dan diam');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `visimisi`
+--
+
+CREATE TABLE `visimisi` (
+  `id` int(11) NOT NULL,
+  `visi` text NOT NULL,
+  `misi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `visimisi`
+--
+
+INSERT INTO `visimisi` (`id`, `visi`, `misi`) VALUES
+(10, 'Terwujudnya Perpustakaan Sekolah yang Representative, Berkualitas, Berdaya Guna  dan Menyenangkan', '-Menumbuh kembangkan minat baca warga sekolah\r\n-Memberikan pelayanan yang cepat, mudah dan ramah\r\n-Menyediakan sumber informasi dan ilmu pengetahuan yang up to date dan lengkap dalam berbagai bentuk (buku, koleksi digital, akses internet)\r\n-Mendukung keberhasilan kegiatan proses belajar mengajar dan seluruh program kerja sekolah.\r\n-Membantu menumbuh kembangkan seluruh bakat dan minat para peserta didik\r\n-Menyediakan sarana dan prasarana penunjang untuk meningkatkan pelayanan kepada pmustaka\r\n-Merancang dan melaksanakan program kerja yang kratif, inofatif, edukatif dan rekreatif\r\n-Meningkatkan kualitas SDM pengelola perpustakaan dengan pengikut sertaan pengelola dalam setiap even kegiatan kepustakawanan\r\n\r\n');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `berita`
+--
+ALTER TABLE `berita`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `buku_paket`
+--
+ALTER TABLE `buku_paket`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_ebook`
+--
+ALTER TABLE `data_ebook`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `galeri`
+--
+ALTER TABLE `galeri`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `inov_layanan`
+--
+ALTER TABLE `inov_layanan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `koleksi`
+--
+ALTER TABLE `koleksi`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `layanan`
+--
+ALTER TABLE `layanan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `prestasi`
+--
+ALTER TABLE `prestasi`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `profil`
+--
+ALTER TABLE `profil`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `struktur`
+--
+ALTER TABLE `struktur`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `studibanding`
+--
+ALTER TABLE `studibanding`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tatatertib`
+--
+ALTER TABLE `tatatertib`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `visimisi`
+--
+ALTER TABLE `visimisi`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `user_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `berita`
+--
+ALTER TABLE `berita`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `buku_paket`
+--
+ALTER TABLE `buku_paket`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `data_ebook`
+--
+ALTER TABLE `data_ebook`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `galeri`
+--
+ALTER TABLE `galeri`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `inov_layanan`
+--
+ALTER TABLE `inov_layanan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `koleksi`
+--
+ALTER TABLE `koleksi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `layanan`
+--
+ALTER TABLE `layanan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `prestasi`
+--
+ALTER TABLE `prestasi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `profil`
+--
+ALTER TABLE `profil`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `struktur`
+--
+ALTER TABLE `struktur`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `studibanding`
+--
+ALTER TABLE `studibanding`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `tatatertib`
+--
+ALTER TABLE `tatatertib`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `visimisi`
+--
+ALTER TABLE `visimisi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
