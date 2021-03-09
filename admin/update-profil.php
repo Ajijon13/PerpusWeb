@@ -1,6 +1,6 @@
 <?php 
         include "../conn.php";
-        if($_POST['upload']){
+
             $id = $_POST['id'];
             $namaperpus  = $_POST['namaperpus'];
             $alamat = $_POST['alamat'];
@@ -20,10 +20,22 @@
             $nosk = $_POST['nosk']; 
             
         $query = mysql_query("UPDATE profil SET namaperpus='$namaperpus', alamat='$alamat', kec='$kec', kab='$kab', prov='$prov', nomor='$nomor', webe='$webe', status='$status', sk='$sk', tahun='$tahun', npsn='$npsn', luas='$luas', no_i='$no_i', namaks='$namaks', namakp='$namakp', nosk='$nosk' WHERE id='$id'");
-            if($query){
-                echo "<script>alert('Data Berhasil Di Update'); window.location = 'profil.php'</script>";
-            }
-            else{
-                echo "<script>alert('Data Berhasil Di Update'); window.location = 'profil.php'</script>";
-            }
+        if($query){
+
+            $data = array(
+                "status" => "berhasil",
+                "pesan" => "Data berhasil diupdate"
+            );
+            header('Content-Type: application/json');
+            echo json_encode($data);
+
         }
+        else{
+            $data = array(
+                "status" => "gagal",
+                "pesan" => "Data gagal diupdate"
+            );
+            header('Content-Type: application/json');
+            echo json_encode($data);
+        }
+?>

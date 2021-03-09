@@ -35,10 +35,7 @@
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
 
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+   
 
 </head>
 <body class="host_version"> 
@@ -56,7 +53,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="index.html">
-					<img src="logo.png" alt="" class="img-fluid" width="250px" />
+                <img src="images/logo/logoperpus.png" alt="" class="img-fluid" width="240px" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="icon-bar"></span>

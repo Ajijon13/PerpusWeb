@@ -136,7 +136,7 @@ $_SESSION['start_time'] = time();
                         <div class="col-xs-12">
                             <div class="panel">
                                 <header class="panel-heading">
-                                    <b>Detail Koleksi</b>
+                                    <b><center>Detail Koleksi</center></b>
 
                                 </header>
                                 <!-- <div class="box-header"> -->
@@ -149,32 +149,30 @@ $_SESSION['start_time'] = time();
                 <div class="panel-body">
                         <table id="example" class="table table-hover table-bordered">
                         <tr>
-                        <td width="250">Keterangan</td>
+                        <td width="250"><strong>Keterangan</strong></td>
                         <td width="550"><?php echo $data['keterangan']; ?></td>
                         </tr>
-                        <td>Koleksi</td>
+                        <td><strong>Koleksi</strong></td>
                         <td><?php echo $data['koleksi']; ?></td>
                         </tr>
                         <tr>
-                        <td>Jumlah Asal</td>
+                        <td><strong>Jumlah Asal</strong></td>
                         <td><?php echo $data['jumlah']; ?></td>
                         </tr>
                         <tr>
-                        <td>Tambahan</td>
+                        <td><strong>Tambahan</strong></td>
                         <td><?php echo $data['tambahan']; ?></td>
                         </tr>
                         <tr>
-                        <td>Total</td>
+                        <td><strong>Total</strong></td>
                         <td><?php echo $data['total']; ?></td>
                         </tr>
                         <tr>
-                        <td>Tanggal Input</td>
+                        <td><strong>Tanggal Input</strong></td>
                         <td><?php echo $data['tgl_input']; ?></td>
                         </tr>
                    </table>
-                </div>
-                
-                  <!-- </div>-->
+                  
                 <div class="text-right">
                 <a href="koleksi.php" class="btn btn-sm btn-warning"> Kembali <i class="fa fa-arrow-circle-right"></i></a>
                 </div>  
@@ -185,7 +183,7 @@ $_SESSION['start_time'] = time();
               <!-- row end -->
                 </section><!-- /.content -->
                 <div class="footer-main">
-                   PERPUSTAKAAN SMPN 2 PACIRAN
+                <strong>PERPUSTAKAAN SMPN 2 PACIRAN</strong>
                 </div>
             </aside><!-- /.right-side -->
 

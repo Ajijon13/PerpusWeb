@@ -7,9 +7,5 @@ include "../conn.php";
 	unlink("../admin/file_pdf_buku/$row[file_buku]");
 	$query=mysql_query("delete from buku_paket where id='$id'");
 
-		if ($query){
-			echo "<script>alert('Data Berhasil dihapus!'); window.location = 'bukupaket.php'</script>";	
-		} else {
-			echo "<script>alert('Data Gagal dihapus!'); window.location = 'bukupaket.php'</script>";	
-		}
+		header('location:bukupaket.php');
 		?>

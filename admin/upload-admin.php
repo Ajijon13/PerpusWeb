@@ -1,32 +1,46 @@
-<?php
-$namafolder="gambar_admin/"; //tempat menyimpan file
+<?php 
+        include "../conn.php";
+			$user_id		   = $_POST['user_id'];
+            $username          = $_POST['username'];
+            $password          = $_POST['password'];
+            $fullname  		   = $_POST['fullname'];
+			$ekstensi_diperbolehkan = array('png', 'jpeg', 'jpg');
+            $nama                   = $_FILES['gambar_admin']['name'];
+            $x                      = explode('.', $nama);
+            $ekstensi               = strtolower(end($x));
+            $ukuran                 = $_FILES['gambar_admin']['size'];
+            $file_tmp              = $_FILES['gambar_admin']['tmp_name']; 
+         
+            if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
+                if($ukuran < 5044070){ 
+                    move_uploaded_file($file_tmp, 'gambar_admin/'.$nama);
+                    $query=mysql_query("INSERT INTO `admin` VALUES('$user_id', '$username','$password','$fullname','$nama')");
+                    if($query){
 
-include "../conn.php";
+						$data = array(
+                            "status" => "berhasil",
+                            "pesan" => "Data berhasil diupload"
+                        );
+                        header('Content-Type: application/json');
+                        echo json_encode($data);
 
-if (!empty($_FILES["nama_file"]["tmp_name"]))
-{
-	$jenis_gambar=$_FILES['nama_file']['type'];
-        $user_id = $_POST['user_id'];
-		$username= $_POST['username'];
-		$password=$_POST['password'];
-        $fullname=$_POST['fullname'];
-		
-	if($jenis_gambar=="image/jpeg" || $jenis_gambar=="image/jpg" || $jenis_gambar=="image/gif" || $jenis_gambar=="image/x-png")
-	{			
-		$gambar = $namafolder . basename($_FILES['nama_file']['name']);		
-		if (move_uploaded_file($_FILES['nama_file']['tmp_name'], $gambar)) {
-			$sql="INSERT INTO admin(user_id,username,password,fullname,gambar) VALUES
-            ('$user_id','$username','$password','$fullname','$gambar')";
-			$res=mysql_query($sql) or die (mysql_error());
-			echo "<script>alert('Data Berhasil Di Upload'); window.location = 'admin.php'</script>";	   
-		} else {
-		   echo "<script>alert('Gambar Gagal Di Upload'); window.location = 'admin.php'</script>";
-		}
-   } else {
-		echo "<script>alert('Format Gambar Salah'); window.location = 'admin.php'</script>";
-   }
-} else {
-	echo "<script>alert('Harus Memasukkan Gambar'); window.location = 'admin.php'</script>";
-}
-
-?>
+                    }
+                    else{
+                        $data = array(
+                            "status" => "gagal",
+                            "pesan" => "Data gagal diupload"
+                        );
+                        header('Content-Type: application/json');
+                        echo json_encode($data);
+                    }
+                }
+                else{
+                    $data = array(
+                        "status" => "gagal",
+                        "pesan" => "File terlalu besar"
+                    );
+                    header('Content-Type: application/json');
+                    echo json_encode($data);
+                }
+            } 
+?> 

@@ -1,22 +1,22 @@
-<table class="table-striped">
-							<thead>
-								<tr class="domain-head">
-									<th scope="col">
-										Judul
-									</th>
-									<th scope="col">
-										Pengarang
-									</th>
-									<th scope="col">
-										Kategori
-									</th>
-									<th scope="col">
-										File PDF
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-                            <?php
+                         <table class="table-striped">
+                            <thead>
+                                <tr class="domain-head">
+                                    <th scope="col">
+                                        Judul
+                                    </th>
+                                    <th scope="col">
+                                        Pengarang
+                                    </th>
+                                    <th scope="col">
+                                        Kategori
+                                    </th>
+                                    <th scope="col">
+                                        File PDF
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
                                     include "/conn.php";
                                     $s_kategori="";
                                     $s_keyword="";
@@ -43,16 +43,18 @@
                                             $file_buku = $row['file_buku'];
                                             $gambar_buku = $row['gambar_buku'];
                             ?>
-								<tr>
-									<td><?php echo $judul; ?></td>
-									<td><?php echo $pengarang; ?></td>
-									<td><?php echo $kategori; ?></td>
-									<td><a href="admin/file_pdf_buku/viewpdf.php?file_name=<?php echo $file_buku;?>" target="_blank"> View Pdf</a></td>
+                                <tr>
+                                    <td><?php echo $judul; ?></td>
+                                    <td><?php echo $pengarang; ?></td>
+                                    <td><?php echo $kategori; ?></td>
+                                    <td><a href="admin/file_pdf_buku/viewpdf.php?file_name=<?php echo $file_buku;?>"
+                                            target="_blank"> View Pdf</a></td>
                                 </tr>
-                                <?php } } else { ?> 
+                                <?php } } else { ?>
                                 <tr>
                                     <td scope="col">Tidak ada data ditemukan</td>
                                 </tr>
-                            <?php } ?>
-							</tbody>
-						</table>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                       

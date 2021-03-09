@@ -1,5 +1,6 @@
 <?php 
         include "../conn.php";
+
             $id                 = $_POST['id'];
             $judul              = $_POST['judul'];
             $pengarang          = $_POST['pengarang'];
@@ -25,7 +26,7 @@
 
                         $data = array(
                             "status" => "berhasil",
-                            "pesan" => "Data berhasil diupload"
+                            "pesan" => "Data berhasil diupdate"
                         );
                         header('Content-Type: application/json');
                         echo json_encode($data);
@@ -34,7 +35,7 @@
                     else{
                         $data = array(
                             "status" => "gagal",
-                            "pesan" => "Data gagal diupload"
+                            "pesan" => "Data gagal diupdate"
                         );
                         header('Content-Type: application/json');
                         echo json_encode($data);
@@ -57,4 +58,4 @@
                 header('Content-Type: application/json');
                 echo json_encode($data);
             }
-        ?> 
+?> 

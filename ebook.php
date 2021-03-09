@@ -22,7 +22,7 @@
     <link rel="apple-touch-icon" href="logo1.png"/>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="datatable-b4/datatables.min.css"/>
     <!-- Site CSS -->
     <link rel="stylesheet" href="style.css">
     <!-- ALL VERSION CSS -->
@@ -35,14 +35,10 @@
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
 
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 <body class="host_version"> 
-     <!-- LOADER -->
+     <!-- LOADER --> 
 	<div id="preloader">
 		<div class="loader-container">
 			<div class="progress-br float shadow">
@@ -56,7 +52,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="index.html">
-					<img src="logo.png" alt="" class="img-fluid" width="250px" />
+                <img src="images/logo/logoperpus.png" alt="" class="img-fluid" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="icon-bar"></span>
@@ -194,13 +190,21 @@
 
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 
+    <script type="text/javascript" src="datatable-b4/datatables.min.js"></script>
+
     <!-- ALL JS FILES -->
     <script src="js/all.js"></script>
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
     <script type="text/javascript">
 		$(document).ready(function(){
-		    $('.data').load("data.php");
+		    $('.data').load("data.php", function(){
+                $("#dt_table").DataTable( {
+                    language: {
+                        url: 'datatable-b4/Indonesian.json'
+                    }
+                });
+            });
 		    $("#search").click(function(){
 		    	var kategori = $("#s_kategori").val();
 		    	var keyword = $("#s_keyword").val();

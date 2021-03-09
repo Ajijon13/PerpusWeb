@@ -1,6 +1,6 @@
 <?php 
         include "../conn.php";
-        if($_POST['upload']){
+
             $id                 = $_POST['id'];
             $judul              = $_POST['judul'];
             $pengarang          = $_POST['pengarang'];
@@ -23,18 +23,40 @@
                     move_uploaded_file($file_tmp1,'sampul_buku/'.$nama1);
                     $query = mysql_query("UPDATE `buku_paket` SET `judul`='$judul',`pengarang`='$pengarang',`tempatdanpenerbit`='$tempatdanpenerbit',`isbn`='$isbn',`jumlahhalaman`='$jumlahhalaman',`kategori`='$kategori',`file_buku`='$nama',`gambar_buku`='$nama1' WHERE id='$id'");
                     if($query){
-                        echo "<script>alert('Data berhasil diupdate'); window.location = 'bukupaket.php'</script>";
+
+                        $data = array(
+                            "status" => "berhasil",
+                            "pesan" => "Data berhasil diupdate"
+                        );
+                        header('Content-Type: application/json');
+                        echo json_encode($data);
+
                     }
                     else{
-                        echo "<script>alert('Data gagal diupdate'); window.location = 'bukupaket.php'</script>";
+                        $data = array(
+                            "status" => "gagal",
+                            "pesan" => "Data gagal diupdate"
+                        );
+                        header('Content-Type: application/json');
+                        echo json_encode($data);
                     }
                 }
                 else{
-                    echo "<script>alert('Ukuran File Terlalu Besar'); window.location = 'bukupaket.php'</script>";
+                    $data = array(
+                        "status" => "gagal",
+                        "pesan" => "File terlalu besar"
+                    );
+                    header('Content-Type: application/json');
+                    echo json_encode($data);
                 }
             }
             else{
-                echo "<script>alert('Ekstensi File Harus Pdf dan Docx'); window.location = 'ebook.php'</script>";
+                $data = array(
+                    "status" => "gagal",
+                    "pesan" => "File harus PDF"
+                );
+                header('Content-Type: application/json');
+                echo json_encode($data);
             }
-        }
+        
         ?> 

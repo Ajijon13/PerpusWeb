@@ -1,26 +1,26 @@
-                <table class="table-striped">
+                <table class="table table-striped" id="dt_table">
 							<thead>
-								<tr class="domain-head">
-									<th scope="col">
+								<tr>
+									<th>
 										Judul
 									</th>
-									<th scope="col">
+									<th>
 										Pengarang
 									</th>
-									<th scope="col">
+									<th>
 										penerbit & tempat terbit
 									</th>
-                                    <th scope="col">
+                                    <th>
 										ISBN
 									</th>
-                                    <th scope="col">
+                                    <th>
 										Jumlah 
                                         <br>halaman
 									</th>
-                                    <th scope="col">
+                                    <th>
 										Kategori
 									</th>
-									<th scope="col">
+									<th>
 										File
 									</th>
 								</tr>
@@ -72,3 +72,5 @@
                             <?php } ?>
 							</tbody>
 						</table>
+                       
+

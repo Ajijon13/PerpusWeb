@@ -13,27 +13,24 @@ if (empty($_SESSION['username'])){
     <title>Perpustakaan SMPN 2 PACIRAN</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="keywords" content="Perpustakaan SMPN 2 PACIRAN">
-    <!-- bootstrap 3.0.2 -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    
+   <!-- bootstrap 3.0.2 -->
+   <link rel="stylesheet" type="text/css" href="assets/DataTables-Savage/datatables.min.css"/>
     <!-- font Awesome -->
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="assets/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- iCheck for checkboxes and radio inputs -->
     <link href="assets/css/iCheck/all.css" rel="stylesheet" type="text/css" />
-    <!-- bootstrap wysihtml5 - text editor -->
-    <!-- <link href="css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" /> -->
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <!-- Theme style -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 
-    <!-- datatable -->
-    <link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap.min.css" type="text/css"/>
 
     <style type="text/css">
-
+    
     </style>
 </head>
+
 <body class="skin-black">
     <!-- header logo: style can be found in header.less -->
     <header class="header">
@@ -123,12 +120,9 @@ $_SESSION['start_time'] = time();
 
                             </header>
                             <div class="text-left" style="margin-top: 10px;">
-                                &nbsp; <a href="ebook.php" class="btn btn-sm btn-warning">Refresh Buku</a> <a
-                                    href="input-ebook.php" class="btn btn-sm btn-success">Tambah Buku</a>
-                            </div>
-                            <div class="text-left" style="margin-top: 10px;">
+                                &nbsp; <a href="ebook.php" class="btn btn-sm btn-warning">Refresh</a>  
                                 <a href="#" class="btn btn-sm btn-success" data-toggle="modal"
-                                    data-target="#modal_tambah_buku">Tambah Buku</a>
+                                    data-target="#modal_tambah_buku">Tambah E-Book</a>
                             </div>
 
                             <!-- Modal -->
@@ -139,7 +133,7 @@ $_SESSION['start_time'] = time();
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">Tambah Buku</h4>
+                                            <h4 class="modal-title">Tambah E-Book</h4>
                                         </div>
                                         <div class="modal-body">
 
@@ -232,7 +226,6 @@ $_SESSION['start_time'] = time();
 
                                         </div>
                                         <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Keluar</button>
                                         </div>
                                     </div>
 
@@ -240,31 +233,11 @@ $_SESSION['start_time'] = time();
                             </div>
 
                             <div class="panel-body table-responsive">
-                                <div class="box-tools m-b-15">
-                                    <form action="ebook.php" method="POST">
-                                        <div class="input-group">
-                                            <input type='text' class="form-control input-sm pull-right"
-                                                style="width: 150px;" name='qcari' placeholder='Cari berdasarkan Judul'
-                                                required />
-                                            <div class="input-group-btn">
-                                                <button class="btn btn-sm btn-default" type="submit"><i
-                                                        class="fa fa-search"></i></button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <?php
+                    <?php
                     $query1="select * from data_ebook";
-                    if(isset($_POST['qcari'])){
-	               $qcari=$_POST['qcari'];
-	               $query1="SELECT * FROM  data_ebook 
-	               where judul like '%$qcari%'
-	               or kategori like '%$qcari%'
-                   or pengarang like '%$qcari%' ";
-                    }
                     $tampil=mysql_query($query1) or die(mysql_error());
                     ?>
-                                <table id="DataTable_ebook" class="table table-striped table-bordered" style="width:100%">
+                                <table id="myTabel" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th>
@@ -277,7 +250,7 @@ $_SESSION['start_time'] = time();
                                                 <center>Kategori </center>
                                             </th>
                                             <th>
-                                                <center>Penerbit & Tempat Terbit</center>
+                                            <center>Penerbit & Tempat Terbit</center>
                                             </th>
                                             <th>
                                                 <center>Gambar Sampul</center>
@@ -287,11 +260,11 @@ $_SESSION['start_time'] = time();
                                             </th>
                                         </tr>
                                     </thead>
+                                    <tbody>
                                     <?php while($data=mysql_fetch_array($tampil))
                     { ?>
-                                    <tbody>
                                         <tr>
-                                            <td><a class="detail-link" href="detail-ebook.php?hal=edit&kd=<?php echo $data['id'];?>"><span class="fa fa-book"></span> <?php echo $data['judul']; ?></a>
+                                            <td><a href="detail-ebook.php?hal=edit&kd=<?php echo $data['id'];?>"><span class="fa fa-book"></span> <?php echo $data['judul']; ?></a>
                                             </td>
                                             <td><?php echo $data['pengarang'];?></td>
                                             <td><?php echo $data['kategori'];?></td>
@@ -302,7 +275,6 @@ $_SESSION['start_time'] = time();
                                             </td>
                                             <td>
                                                 <center>
-                                                    <div id="thanks">
                                                         
                                                     <a class="btn btn-sm btn-primary"
                                                         data-placement="bottom"
@@ -311,7 +283,6 @@ $_SESSION['start_time'] = time();
                                                         <span>Edit</span>
                                                     </a>
 
-                                                        
                                                     <a  class="delete-link" 
                                                         data-placement="bottom" 
                                                         title="Hapus E-Book"
@@ -320,7 +291,6 @@ $_SESSION['start_time'] = time();
                                                 </center>
                                             </td>
                                         </tr>
-                      
 
                             <?php   
               } 
@@ -364,7 +334,7 @@ $_SESSION['start_time'] = time();
                 <div class="modal-body">
 
                     <div class="row">
-                        <div class="col-xs-12">
+                        <div class="col-xs-14">
                             <div class="panel">
                                 <div class="panel-body">
                                     <form class="form-horizontal style-form" style="margin-top: 20px;"
@@ -376,43 +346,43 @@ $_SESSION['start_time'] = time();
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class=" col-sm-4 control-label">Judul</label>
-                                            <div class="col-sm-4">
+                                            <label class=" col-sm-3 control-label">Judul</label>
+                                            <div class="col-sm-8">
                                                 <input name="judul" type="text" id="edit-judul" class="form-control"
                                                     autocomplete="off" value="" required="" />
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-4 control-label">Pengarang</label>
-                                            <div class="col-sm-4">
+                                            <label class="col-sm-3 control-label">Pengarang</label>
+                                            <div class="col-sm-8">
                                                 <input name="pengarang" type="text" id="edit-pengarang" class="form-control"
                                                     autocomplete="off" value="" required="" />
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-4 control-label">Penerbit & Tempat Terbit</label>
-                                            <div class="col-sm-4">
+                                            <label class="col-sm-3 control-label">Penerbit & Tempat Terbit</label>
+                                            <div class="col-sm-8">
                                                 <input name="tempatdanpenerbit" type="text" id="edit-tempatdanpenerbit"
                                                     class="form-control" autocomplete="off" value="" required="" />
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-4 control-label">ISBN</label>
-                                            <div class="col-sm-4">
+                                            <label class="col-sm-3 control-label">ISBN</label>
+                                            <div class="col-sm-8">
                                                 <input name="isbn" type="text" id="edit-isbn" class="form-control"
                                                     autocomplete="off" value="" required="" />
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-4 control-label">Jumlah Halaman</label>
-                                            <div class="col-sm-4">
+                                            <label class="col-sm-3 control-label">Jumlah Halaman</label>
+                                            <div class="col-sm-8">
                                                 <input name="jumlahhalaman" type="text" id="edit-jumlahhalaman"
                                                     class="form-control" autocomplete="off" value="" required="" />
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-4 control-label">Kategori</label>
-                                            <div class="col-sm-4">
+                                            <label class="col-sm-3 control-label">Kategori</label>
+                                            <div class="col-sm-8">
                                                 <select name="kategori" type="text" id="edit-kategori" class="form-control"
                                                     autocomplete="off" value="" required="">
                                                     <option value="">Pilih Kategori</option>
@@ -432,8 +402,8 @@ $_SESSION['start_time'] = time();
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-sm-4 control-label">File E-Book</label>
-                                            <div class="col-sm-4">
+                                            <label class="col-sm-3 control-label">File E-Book</label>
+                                            <div class="col-sm-8">
                                                 <span class="help-block">Silahkan memilih file pdf untuk di
                                                     update</span>
                                                 <embed src="" alt="File Pdf" style="margin-bottom: 10px;" /><br />
@@ -442,8 +412,8 @@ $_SESSION['start_time'] = time();
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-sm-4 control-label">File gambar</label>
-                                            <div class="col-sm-4">
+                                            <label class="col-sm-3 control-label">File gambar</label>
+                                            <div class="col-sm-8">
                                                 <img id="edit-gambar_ebook" height="150" width="150" class="img-circle"
                                                     style="border: 3px solid black;" />
                                                 <span class="help-block">Silahkan memilih file gambar untuk di
@@ -453,8 +423,8 @@ $_SESSION['start_time'] = time();
                                         </div>
 
                                         <div class="form-group" style="margin-bottom: 20px;">
-                                            <label class="col-sm-4  control-label"></label>
-                                            <div class="col-sm-4">
+                                            <label class="col-sm-3  control-label"></label>
+                                            <div class="col-sm-8">
                                                 <input type="submit" name="upload" value="Update"
                                                     class="btn btn-sm btn-primary" />
                                             </div>
@@ -474,20 +444,18 @@ $_SESSION['start_time'] = time();
         </div>
     </div>
 
-    <!-- jQuery 2.0.2 -->
-    <!--<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>-->
-    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>-->
-    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
-
-    <!-- jQuery UI 1.10.3 -->
-    <script src="assets/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
-
+    <script type="text/javascript" src="assets/DataTables-Savage/datatables.min.js"></script>
+    <script src="assets/js/sweetalert2.all.min.js" type="text/javascript"></script>
+     <!-- jQuery UI 1.10.3 -->
+     <script src="assets/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- daterangepicker -->
     <script src="assets/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
 
     <script src="assets/js/plugins/chart.js" type="text/javascript"></script>
+    <!-- iCheck -->
+    <script src="assets/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
 
     <!-- Director App -->
     <script src="assets/js/Director/app.js" type="text/javascript"></script>
@@ -495,29 +463,22 @@ $_SESSION['start_time'] = time();
     <!-- Director dashboard demo (This is only for demo purposes) -->
     <script src="assets/js/Director/dashboard.js" type="text/javascript"></script>
 
-    <script src="assets/js/sweetalert2.all.min.js" type="text/javascript"></script>
-
-    <!-- data tabel-->
-    <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" type="text/javascript"></script>
-
-    <!-- datatable -->
-    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-
     <!-- Director for demo purposes -->
     <script type="text/javascript">
-        $('input').on('ifChecked', function (event) {
-            // var element = $(this).parent().find('input:checkbox:first');
-            // element.parent().parent().parent().addClass('highlight');
-            $(this).parents('li').addClass("task-done");
-            console.log('ok');
-        });
-        $('input').on('ifUnchecked', function (event) {
-            // var element = $(this).parent().find('input:checkbox:first');
-            // element.parent().parent().parent().removeClass('highlight');
-            $(this).parents('li').removeClass("task-done");
-            console.log('not');
-        });
-    </script>
+            $('input').on('ifChecked', function(event) {
+                // var element = $(this).parent().find('input:checkbox:first');
+                // element.parent().parent().parent().addClass('highlight');
+                $(this).parents('li').addClass("task-done");
+                console.log('ok');
+            });
+            $('input').on('ifUnchecked', function(event) {
+                // var element = $(this).parent().find('input:checkbox:first');
+                // element.parent().parent().parent().removeClass('highlight');
+                $(this).parents('li').removeClass("task-done");
+                console.log('not');
+            });
+
+        </script>
     <script>
         $('#noti-box').slimScroll({
             height: '400px',
@@ -530,13 +491,15 @@ $_SESSION['start_time'] = time();
             radioClass: 'iradio_flat-grey'
         });
     </script>
-
     <script>
-    $(document).ready( function () {
-        $('#DataTable_ebook').DataTable();
-    } );
+        $(document).ready(function(){
+            $('#myTabel').DataTable( {
+                language: {
+                    url: 'assets/DataTables-Savage/Indonesian.json'
+                }
+            });
+        });
     </script>
-
     <script>
             //tambah kode script
             //modal tambah buku
@@ -573,10 +536,10 @@ $_SESSION['start_time'] = time();
                                 location.reload();
                             });        
                         }
-                       
+
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
-                       alert("Error, Coba cek lagi");
+                       alert("Error, mohon hubungi admin");
                     }
                 });
 
@@ -608,7 +571,7 @@ $_SESSION['start_time'] = time();
                             $('#edit-isbn').val(data.data.isbn);
                             $('#edit-jumlahhalaman').val(data.data.jumlahhalaman);
                             $('#edit-kategori').val(data.data.kategori);
-                            $('#edit-gambar_ebook').attr("src","sampul_ebook/" + data.data.gambar_ebook)
+                            $('#edit-gambar_ebook').attr("src","sampul_ebook/" + data.data.gambar_ebook);
                             $('#modal_edit').modal('show');
                             
                         }
@@ -618,7 +581,7 @@ $_SESSION['start_time'] = time();
 
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
-                        alert("Error, Coba Cek Lagi");
+                        alert("Error, mohon hubungi admin");
                     }
                 });
 
@@ -657,10 +620,11 @@ $_SESSION['start_time'] = time();
                             }).then(() => {
                                 location.reload();
                             });        
-                        }                         
-                    }, 
+                        }
+
+                    },
                     error: function (xhr, ajaxOptions, thrownError) {
-                       alert("Error, Coba cek lagi");
+                       alert("Error, mohon hubungi admin");
                     }
                 });
 
@@ -690,21 +654,6 @@ $_SESSION['start_time'] = time();
             });
     </script>
 
-    <script> 
-            $('.detail-link').on('click',function(e){
-                e.preventDefault();
-                const href = $(this).attr('href')
-
-                Swal.fire({
-                title: '<strong>Detail E-book</strong>',
-                type: 'info',
-                Url: 'detail-ebook.php',
-                showCloseButton: true,
-                focusConfirm: false,
-                
-            });
-        });
-    </script>
 </body>
 
 </html>

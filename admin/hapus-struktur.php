@@ -6,9 +6,5 @@ $row=mysql_fetch_array($sql);
 unlink("../admin/gambar/$row[gambar]");
 $query=mysql_query("delete from struktur where id='$id'");
 
-if ($query){
-	echo "<script>alert('Data Berhasil dihapus!'); window.location = 'struktur.php'</script>";	
-} else {
-	echo "<script>alert('Data Gagal dihapus!'); window.location = 'struktur.php'</script>";	
-}
+header('location:struktur.php');
 ?>

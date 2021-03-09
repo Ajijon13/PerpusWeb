@@ -36,10 +36,6 @@
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
 
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 <body class="host_version"> 
@@ -49,7 +45,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="index.php">
-					<img src="logo.png" alt="" class="img-fluid" width="250px" />
+				<img src="images/logo/logoperpus.png" alt="" class="img-fluid"  />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="icon-bar"></span>
@@ -58,7 +54,7 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-host">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="index.php">Beranda</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
 						<li class="nav-item"><a class="nav-link" href="profil.php">Profil</a></li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="" id="dropdown-a" data-toggle="dropdown">Koleksi </a>
@@ -121,48 +117,51 @@
                 <div class="col-md-12">
                     <div class="tab-content">
                         <div class="tab-pane active fade show" id="tab1">
-                            <div class="row text-center">
-                                <div class="col-md-4">
-										<?php
+                            <?php
 											$query="select * from koleksi where koleksi='Cetak'";
 											$tampil=mysql_query($query) or die(mysql_error());
-										?>
-                                    <div class="pricing-table pricing-table-highlighted">
-										<?php while($data=mysql_fetch_array($tampil)){ 
-           								 ?>
+							?>
+                            <div class="row text-center">
+                            <?php while($data=mysql_fetch_array($tampil)){ 
+           					?>
+                                <div class="col-md-4">
+                                        <div class="pricing-table pricing-table-highlighted">
                                         <div class="pricing-table-header grd1">   </div>
                                         <div class="pricing-table-space"></div>
                                         <div class="pricing-table-features">
 										<p><?php echo $data['keterangan']; ?></p>
                                         </div>
 									</div>
-									<?php   
-										} 
-									?>
                                 </div>
+                                <?php   
+								} 
+								?>
                             </div><!-- end row -->
+                            <br>
                         </div><!-- end pane -->
 
                         <div class="tab-pane fade" id="tab2">
-                            <div class="row text-center">
-                                <div class="col-md-4">
-										<?php
+                        <?php
 											$query="select * from koleksi where koleksi='Non Cetak'";
 											$tampil=mysql_query($query) or die(mysql_error());
-										?>
-                                    <div class="pricing-table pricing-table-highlighted">
-										<?php while($data=mysql_fetch_array($tampil)){ 
-           								 ?>
+						?>
+                            <div class="row text-center">
+                            <?php while($data=mysql_fetch_array($tampil)){ 
+           					?>
+                                <div class="col-md-4">
+                                    <div class="pricing-table pricing-table-highlighted">   
                                         <div class="pricing-table-header grd1"></div>
                                         <div class="pricing-table-space"></div>
                                         <div class="pricing-table-features">
 										<p><?php echo $data['keterangan']; ?></p>
                                         </div>  
 									</div>
-									<?php   
-										} 
-									?>
+                                    <br>
+                                    <br>
                                 </div>
+                                <?php   
+										} 
+								?>
                             </div><!-- end row -->
                         </div><!-- end pane -->
                     </div><!-- end content -->

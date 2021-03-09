@@ -1,6 +1,5 @@
 <?php 
         include "../conn.php";
-        if($_POST['upload']){
             $namaperpus    = $_POST['namaperpus'];
             $alamat = $_POST['alamat'];
             $kec    = $_POST['kec'];
@@ -19,11 +18,22 @@
             $nosk = $_POST['nosk']; 
 
             $query=mysql_query("INSERT INTO profil VALUES(NULL,'$namaperpus','$alamat','$kec','$kab','$prov','$nomor','$webe','$statu','$sk','$tahun','$npsn','$luas','$no_i','$namaks','$namakp','$nosk')");
-                if($query){
-                    echo "<script>alert('Data Berhasil Di Upload'); window.location = 'profil.php'</script>";
-                }
-                else{
-                    echo "<script>alert('Data Berhasil Di Upload'); window.location = 'profil.php'</script>";
-                }
-        }
+            if($query){
+
+                $data = array(
+                    "status" => "berhasil",
+                    "pesan" => "Data berhasil diupload"
+                );
+                header('Content-Type: application/json');
+                echo json_encode($data);
+    
+            }
+            else{
+                $data = array(
+                    "status" => "gagal",
+                    "pesan" => "Data gagal diupload"
+                );
+                header('Content-Type: application/json');
+                echo json_encode($data);
+            }
         ?> 

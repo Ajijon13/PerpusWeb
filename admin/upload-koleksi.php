@@ -1,6 +1,5 @@
 <?php 
     include "../conn.php";
-    if($_POST['upload']){
         $tgl_input = $_POST['tgl_input'];
         $koleksi = $_POST['koleksi'];
         $keterangan = $_POST['keterangan'];
@@ -12,10 +11,22 @@
                 values (null, '$tgl_input', '$koleksi', '$keterangan', '$jumlah', '$tambahan', '$total');
         ");
         if($query){
-            echo "<script>alert('Data Berhasil Di Upload'); window.location = 'koleksi.php'</script>";
+
+            $data = array(
+                "status" => "berhasil",
+                "pesan" => "Data berhasil diupload"
+            );
+            header('Content-Type: application/json');
+            echo json_encode($data);
+
         }
         else{
-            echo "<script>alert('Data Gagal Di Upload'); window.location = 'input-koleksi.php'</script>";
+            $data = array(
+                "status" => "gagal",
+                "pesan" => "Data gagal diupload"
+            );
+            header('Content-Type: application/json');
+            echo json_encode($data);
         }
-    }
+
 ?>

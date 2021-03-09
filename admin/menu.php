@@ -1,8 +1,8 @@
-                            <img src="../logo1.png"/>
+                            <img src="../images/logo/logo1.png"/>
                             <ul class="sidebar-menu">
                                 <li class="active">
                                     <a href="index.php">
-                                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                                        <i class="fa fa-dashboard"></i> <span>Beranda</span>
                                     </a>
                                 </li>
 								
@@ -13,7 +13,6 @@
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
                                     <ul class="treeview-menu">
-                                        <li><a href="input-admin.php"><i class="fa fa-angle-double-right"></i> Tambah Admin</a></li>
                                         <li><a href="admin.php"><i class="fa fa-angle-double-right"></i> Data Admin</a></li>
                                     </ul>
                                 </li>

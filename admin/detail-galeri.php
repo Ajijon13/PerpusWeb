@@ -152,7 +152,7 @@ $_SESSION['start_time'] = time();
                     <td width="250"><strong>Keterangan</strong></td>
                     <td width="550"><?php echo $data['keterangan']; ?></td>
                     <td rowspan="9"><div class="pull-right image">
-                    <img src="gambar/<?php echo $data['gambar_galeri']; ?>"  height="300" width="250" alt="gambar" style="border: 3px solid #333333;" />
+                    <img src="gambar_galeri/<?php echo $data['gambar_galeri']; ?>"  height="300" width="250" alt="gambar" style="border: 3px solid #333333;" />
                     </div>
                     </td>
                     </tr>
@@ -168,7 +168,7 @@ $_SESSION['start_time'] = time();
               <!-- row end -->
                 </section><!-- /.content -->
                 <div class="footer-main">
-                  APLIKASI PERPUSTAKAAN SMPN 2 PACIRAN
+                  <strong>PERPUSTAKAAN SMPN 2 PACIRAN</strong> 
                 </div>
             </aside><!-- /.right-side -->
 

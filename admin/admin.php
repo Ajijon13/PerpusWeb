@@ -7,100 +7,71 @@ if (empty($_SESSION['username'])){
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
-    <title>PERPUSTAKAAN SAMUDERA ILMU</title>
+    <title>Perpustakaan SMPN 2 PACIRAN</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <meta name="description" content="SMP 2 PACIRAN">
-    <meta name="keywords" content="Perpustakaan">
-     <!-- bootstrap 3.0.2 -->
-     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <meta name="keywords" content="Perpustakaan SMPN 2 PACIRAN">
+    
+   <!-- bootstrap 3.0.2 -->
+   <link rel="stylesheet" type="text/css" href="assets/DataTables-Savage/datatables.min.css"/>
     <!-- font Awesome -->
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Ionicons -->
-    <link href="assets/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-    <!-- Morris chart -->
-    <link href="assets/css/morris/morris.css" rel="stylesheet" type="text/css" />
-    <!-- jvectormap -->
-    <link href="assets/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
-    <!-- Date Picker -->
-    <link href="assets/css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
-    <!-- fullCalendar -->
-    <!-- <link href="css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" /> -->
-    <!-- Daterange picker -->
-    <link href="assets/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
-    <!-- iCheck for checkboxes and radio inputs -->
-    <link href="assets/css/iCheck/all.css" rel="stylesheet" type="text/css" />
-    <!-- bootstrap wysihtml5 - text editor -->
-    <!-- <link href="css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" /> -->
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
     <!-- Theme style -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    
 
 
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-          <![endif]-->
+    <style type="text/css">
 
-          <style type="text/css">
+    </style>
+</head>
 
-          </style>
-      </head>
-      <body class="skin-black">
-        <!-- header logo: style can be found in header.less -->
-        <header class="header">
-            <a href="index.php" class="logo">
-			<br>
-                <strong>PERPUSTAKAAN SAMUDERA ILMU</strong>
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav">
-                        
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-user"></i>
-                                <span><?php echo $_SESSION['fullname']; ?> <i class="caret"></i></span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                                <li class="dropdown-header text-center">Account</li>
+<body class="skin-black">
+    <!-- header logo: style can be found in header.less -->
+    <header class="header">
+        <a href="index.php" class="logo">
+            <br><strong>PERPUSTAKAAN SMPN 2 PACIRAN</strong>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>
+                            <span><?php echo $_SESSION['fullname']; ?> <i class="caret"></i></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-header text-center">Akun</li>
 
-                                    <li>
-                                        <a href="detail-admin.php?hal=edit&kd=<?php echo $_SESSION['user_id'];?>">
-                                        <i class="fa fa-user fa-fw pull-right"></i>
-                                            Profile
-                                        </a>
-                                        <a href="admin.php">
-                                        <i class="fa fa-cog fa-fw pull-right"></i>
-                                            Settings
-                                        </a>
-                                        </li>
+                            <li>
+                                <a href="detail-admin.php?hal=edit&kd=<?php echo $_SESSION['user_id'];?>">
+                                    <i class="fa fa-user fa-fw pull-right"></i>
+                                    Profil
+                                </a>
+                                <a href="admin.php">
+                                    <i class="fa fa-cog fa-fw pull-right"></i>
+                                    pengaturan
+                                </a>
+                            </li>
 
-                                        <li class="divider"></li>
+                            <li class="divider"></li>
 
-                                        <li>
-                                            <a href="../logout.php"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </header>
-                <?php
+                            <li>
+                                <a href="../logout.php"><i class="fa fa-ban fa-fw pull-right"></i> keluar</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <?php
 $timeout = 10; // Set timeout minutes
 $logout_redirect_url = "../login.html"; // Set logout URL
 
@@ -114,205 +85,453 @@ if (isset($_SESSION['start_time'])) {
 }
 $_SESSION['start_time'] = time();
 ?>
-<?php } ?>
-                <div class="wrapper row-offcanvas row-offcanvas-left">
-                    <!-- Left side column. contains the logo and sidebar -->
-                    <aside class="left-side sidebar-offcanvas">
-                        <!-- sidebar: style can be found in sidebar.less -->
-                        <section class="sidebar">
-						<br>
-						<br>
-                            <!-- search form -->
-                            <!--<form action="#" method="get" class="sidebar-form">
-                                <div class="input-group">
-                                    <input type="text" name="q" class="form-control" placeholder="Search..."/>
-                                    <span class="input-group-btn">
-                                        <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-                                    </span>
-                                </div>
-                            </form> -->
-                            <!-- /.search form -->
-                            <!-- sidebar menu: : style can be found in sidebar.less -->
-                            <?php include "menu.php"; ?>
-                        </section>
-                        <!-- /.sidebar -->
-                    </aside>
+    <?php } ?>
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="left-side sidebar-offcanvas">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <br>
+                <br>
+                <?php include "menu.php"; ?>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
 
-                    <aside class="right-side">
+        <aside class="right-side">
 
-                <!-- Main content -->
-                <section class="content">
+            <!-- Main content -->
+            <section class="content">
 
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="panel">
-                                <header class="panel-heading">
-                                    <b>Data Admin</b>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel">
+                            <header class="panel-heading">
+                                <b>Data Admin</b>
 
-                                </header>
-                                <!-- <div class="box-header"> -->
-                                    <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
+                            </header>
+                            <div class="text-left" style="margin-top: 10px;">
+                                &nbsp; <a href="berita.php" class="btn btn-sm btn-warning">Refresh</a>  
+                                <a href="#" class="btn btn-sm btn-success" data-toggle="modal"
+                                    data-target="#modal_tambah_admin">Tambah Admin</a>
+                            </div>
 
-                                <!-- </div> -->
-                                <div class="panel-body table-responsive">
-                                    <div class="box-tools m-b-15">
-                                    <form action="admin.php" method="POST">
-                                        <div class="input-group">
-                                        <input type='text' class="form-control input-sm pull-right" style="width: 150px;"  name='qcari' placeholder='Cari berdasarkan User ID dan Username' required /> 
-                                            <div class="input-group-btn">
-                                                <button class="btn btn-sm btn-default" type="submit"><i class="fa fa-search"></i></button>
-                                            </div>
+                            <!-- Modal -->
+                            <div id="modal_tambah_admin" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Tambah Admin</h4>
                                         </div>
-                                    </form>    
+                                        <div class="modal-body">
+
+                                            <form class="form-horizontal style-form" style="margin-top: 20px;"
+                                                id="form_tambah_admin">
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">User ID</label>
+                                                    <div class="col-sm-8">
+                                                        <input name="user_id" type="text" id="user_id" class="form-control" placeholder="User ID"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label text-right">Username</label>
+                                                    <div class="col-sm-8">
+                                                        <input name="username" type="text" id="username" autocomplete="off" class="form-control" placeholder="Nama " required />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label text-right">Password</label>
+                                                    <div class="col-sm-8">
+                                                        <input name="password" type="password" id="password" autocomplete="off" class="form-control" placeholder="password" required />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label text-right">Fullname</label>
+                                                    <div class="col-sm-8">
+                                                    <input name="fullname" class="form-control" id="fullname" autocomplete="off" type="text" placeholder="Nama Lengkap" required />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label text-right">Pilih Gambar</label>
+                                                    <div class="col-sm-8">
+                                                        <input name="gambar_admin" type="file" accept="image/*"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" style="margin-bottom: 20px;">
+                                                    <label class="col-sm-3 control-label text-right"></label>
+                                                    <div class="col-sm-8">
+                                                        <button id="button_tambah_admin" type="submit"
+                                                            class="btn btn-primary">Upload</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                        </div>
                                     </div>
-                                    <?php
+
+                                </div>
+                            </div>
+
+                            <div class="panel-body table-responsive">
+                    <?php
                     $query1="select * from admin";
-                    
-                    if(isset($_POST['qcari'])){
-	               $qcari=$_POST['qcari'];
-	               $query1="SELECT * FROM  admin 
-	               where fullname like '%$qcari%'
-	               or username like '%$qcari%'  ";
-                    }
                     $tampil=mysql_query($query1) or die(mysql_error());
                     ?>
-                                    <table id="example" class="table table-hover table-bordered">
-                  <thead>
-                      <tr>
-                        <th><center>User ID </center></th>
-                        <th><center>Username </center></th>
-                        <th><center>Password </center></th>
-                        <th><center>Fullname </center></th>
-                        <th><center>Foto </center></th>
-                        <th><center>Opsi</center></th>
-                      </tr>
-                  </thead>
-                     <?php while($data=mysql_fetch_array($tampil))
+                                <table id="myTabel" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <center>User ID</center>
+                                            </th>
+                                            <th>
+                                                <center>Username</center>
+                                            </th>
+                                            <th>
+                                                <center>Password</center>
+                                            </th>
+                                            <th>
+                                                <center>Full Name</center>
+                                            </th>
+                                            <th>
+                                                <center>Foto Admin</center>
+                                            </th>
+                                            <th>
+                                                <center>Opsi</center>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php while($data=mysql_fetch_array($tampil))
                     { ?>
-                    <tbody>
-                    <tr>
-                    <td><?php echo $data['user_id']; ?></td>
-                    <td><?php echo $data['username'];?></td>
-                    <td><?php echo $data['password'];?></td>
-                    <td><a href="detail-admin.php?hal=edit&kd=<?php echo $data['user_id'];?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data['fullname']; ?></a></td>
-                    <td><center><img src="<?php echo $data['gambar']; ?>" class="img-circle" height="80" width="75" style="border: 3px solid #333333;" /></center></td>
-                    <td><center><div id="thanks"><a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Edit Admin" href="edit-admin.php?hal=edit&kd=<?php echo $data['user_id'];?>"><span class="glyphicon glyphicon-edit"></span></a>
-                    <a onclick="return confirm ('Yakin hapus <?php echo $data['fullname'];?>.?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Admin" href="hapus-admin.php?hal=hapus&kd=<?php echo $data['user_id'];?>"><span class="glyphicon glyphicon-trash"></a></center></td></tr></div>
-                 <?php   
+                                        <tr>
+                                            <td><?php echo $data['user_id']; ?></td>
+                                            <td><?php echo $data['username'];?></td>
+                                            <td><?php echo $data['password'];?></td>
+                                            <td><a href="detail-admin.php?hal=edit&kd=<?php echo $data['user_id'];?>"><span class="glyphicon glyphicon-user"></span> <?php echo $data['fullname']; ?></a></td>
+                                            <td><center><img src="gambar_admin/<?php echo $data['gambar_admin']; ?>" height="100" width="100" style="border: 1px solid #333333;" />
+                                                </center>
+                                            </td>
+                                            <td>
+                                                <center>
+                                                        
+                                                    <a class="btn btn-sm btn-primary"
+                                                        data-placement="bottom"
+                                                        title="Edit Admin"
+                                                        onclick="OpenModalEdit(<?php echo $data['user_id'];?>);">
+                                                        <span>Edit</span>
+                                                    </a>
+                                                    <a  class="delete-link" 
+                                                        data-placement="bottom" 
+                                                        title="Hapus Admin"
+                                                        href="hapus-admin.php?hal=hapus&kd=<?php echo $data['user_id'];?>" data-placement="bottom">
+                                                        <span class="btn btn-sm btn-danger" >Hapus</span></a>
+                                                </center>
+                                            </td>
+                                        </tr>
+
+                            <?php   
               } 
               ?>
-                   </tbody>
-                   </table>
-                  <!-- </div>-->
-                <div class="text-right" style="margin-top: 10px;">
-                 <a href="admin.php" class="btn btn-sm btn-info">Refresh Admin <i class="fa fa-refresh"></i></a> <a href="input-admin.php" class="btn btn-sm btn-warning">Tambah Admin <i class="fa fa-arrow-circle-right"></i></a>
+                            </tbody>
+                            </table>
+
+                            <?php $tampil=mysql_query("select * from admin order by user_id");
+                                $admin=mysql_num_rows($tampil);
+                            ?>
+                            <center>
+                                <h4>Jumlah Admin : <?php echo "$admin"; ?> </h4>
+                            </center>
+
+
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
                 </div>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
+    </div>
+    <!-- row end -->
+    </section><!-- /.content -->
+    <div class="footer-main">
+        <strong>PERPUSTAKAAN SMPN 2 PACIRAN</strong>
+    </div>
+    </aside><!-- /.right-side -->
+
+    </div><!-- ./wrapper -->
+
+    <!--modal edit -->
+
+    <!-- Modal -->
+    <div id="modal_edit" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Admin</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-xs-14">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <form class="form-horizontal style-form" style="margin-top: 20px;"
+                                        id="form_edit_admin">
+                                        <div class="form-group">
+                                            <div class="col-sm-4">
+                                                <input name="user_id" type="hidden" id="edit-user_id" class="form-control"
+                                                    autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" col-sm-3 control-label">Username</label>
+                                            <div class="col-sm-8">
+                                                <input name="username" type="text" id="edit-username" class="form-control"
+                                                    autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class=" col-sm-3 control-label">Password</label>
+                                            <div class="col-sm-8">
+                                                <input name="password" type="password" id="edit-password" class="form-control"
+                                                    autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class=" col-sm-3 control-label">Full Name</label>
+                                            <div class="col-sm-8">
+                                                <input name="fullname" type="text" id="edit-fullname" class="form-control"
+                                                    autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Foto</label>
+                                            <div class="col-sm-8">
+                                                <img id="edit-gambar_admin" height="150" width="150" class="img-circle"
+                                                    style="border: 3px solid black;" />
+                                                <span class="help-block">Silahkan memilih file gambar untuk di
+                                                    update</span>
+                                                <input name="gambar_admin" type="file" accept="image/*" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" style="margin-bottom: 20px;">
+                                            <label class="col-sm-3  control-label"></label>
+                                            <div class="col-sm-8">
+                                                <input type="submit" name="upload" value="Update"
+                                                    class="btn btn-sm btn-primary" />
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
-              <!-- row end -->
-                </section><!-- /.content -->
-                <div class="footer-main">
-                   PERPUSTAKAAN SMPN 2 NEGERI PACIRAN
+
                 </div>
-            </aside><!-- /.right-side -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Keluar</button>
+                </div>
+            </div>
 
-        </div><!-- ./wrapper -->
+        </div>
+    </div>
 
+    <script type="text/javascript" src="assets/DataTables-Savage/datatables.min.js"></script>
+    <script src="assets/js/sweetalert2.all.min.js" type="text/javascript"></script>
+    
+     <!-- jQuery UI 1.10.3 -->
+     <script src="assets/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+    <!-- Bootstrap -->
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- Director App -->
+    <script src="assets/js/Director/app.js" type="text/javascript"></script>
 
-        <!-- jQuery 2.0.2 -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-        <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+    <script>
+        $('#noti-box').slimScroll({
+            height: '400px',
+            size: '5px',
+            BorderRadius: '5px'
+        });
 
-        <!-- jQuery UI 1.10.3 -->
-        <script src="assets/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
-        <!-- Bootstrap -->
-        <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-        <!-- daterangepicker -->
-        <script src="assets/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
-
-        <script src="assets/js/plugins/chart.js" type="text/javascript"></script>
-
-        <!-- datepicker
-        <script src="js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>-->
-        <!-- Bootstrap WYSIHTML5
-        <script src="js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>-->
-        <!-- iCheck -->
-        <script src="assets/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-        <!-- calendar -->
-        <script src="assets/js/plugins/fullcalendar/fullcalendar.js" type="text/javascript"></script>
-
-        <!-- Director App -->
-        <script src="assets/js/Director/app.js" type="text/javascript"></script>
-
-        <!-- Director dashboard demo (This is only for demo purposes) -->
-        <script src="assets/js/Director/dashboard.js" type="text/javascript"></script>
-
-        <!-- Director for demo purposes -->
-        <script type="text/javascript">
-            $('input').on('ifChecked', function(event) {
-                // var element = $(this).parent().find('input:checkbox:first');
-                // element.parent().parent().parent().addClass('highlight');
-                $(this).parents('li').addClass("task-done");
-                console.log('ok');
+        $('input[type="checkbox"].flat-grey, input[type="radio"].flat-grey').iCheck({
+            checkboxClass: 'icheckbox_flat-grey',
+            radioClass: 'iradio_flat-grey'
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#myTabel').DataTable( {
+                language: {
+                    url: 'assets/DataTables-Savage/Indonesian.json'
+                }
             });
-            $('input').on('ifUnchecked', function(event) {
-                // var element = $(this).parent().find('input:checkbox:first');
-                // element.parent().parent().parent().removeClass('highlight');
-                $(this).parents('li').removeClass("task-done");
-                console.log('not');
-            });
+        });
+    </script>
+    <script>
+            //tambah kode script
+            //modal tambah admin
+            $("#form_tambah_admin").submit(function (event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                console.log(formData);
 
-        </script>
-        <script>
-            $('#noti-box').slimScroll({
-                height: '400px',
-                size: '5px',
-                BorderRadius: '5px'
-            });
-
-            $('input[type="checkbox"].flat-grey, input[type="radio"].flat-grey').iCheck({
-                checkboxClass: 'icheckbox_flat-grey',
-                radioClass: 'iradio_flat-grey'
-            });
-</script>
-<script type="text/javascript">
-    $(function() {
-                "use strict";
-                //BAR CHART
-                var data = {
-                    labels: ["January", "February", "March", "April", "May", "June", "July"],
-                    datasets: [
-                        {
-                            label: "My First dataset",
-                            fillColor: "rgba(220,220,220,0.2)",
-                            strokeColor: "rgba(220,220,220,1)",
-                            pointColor: "rgba(220,220,220,1)",
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: "rgba(220,220,220,1)",
-                            data: [65, 59, 80, 81, 56, 55, 40]
-                        },
-                        {
-                            label: "My Second dataset",
-                            fillColor: "rgba(151,187,205,0.2)",
-                            strokeColor: "rgba(151,187,205,1)",
-                            pointColor: "rgba(151,187,205,1)",
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: "rgba(151,187,205,1)",
-                            data: [28, 48, 40, 19, 86, 27, 90]
+                $.ajax({
+                    type:'POST',
+                    dataType: 'json',
+                    url: 'upload-admin.php',
+                    data:formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success:function(data){
+                        
+                        if(data.status == "berhasil"){ 
+                            Swal.fire({
+                            icon: 'success',
+                            title: 'Sukses',
+                            text: data.pesan
+                            }).then(() => {
+                                location.reload();
+                            });
                         }
-                    ]
-                };
-            new Chart(document.getElementById("linechart").getContext("2d")).Line(data,{
-                responsive : true,
-                maintainAspectRatio: false,
-            });
+                        else if(data.status == "gagal"){ 
+                            Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal',
+                            text: data.pesan
+                            }).then(() => {
+                                location.reload();
+                            });        
+                        }
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                       alert("Error, mohon hubungi admin");
+                    }
+                });
 
             });
-            // Chart.defaults.global.responsive = true;
-</script>
+
+            //modal edit admin
+            function OpenModalEdit(user_id){
+
+                //get existing data
+                var formdata = new FormData();
+                formdata.append('user_id', user_id);
+                formdata.append('usage', 'get-data');
+                $.ajax({
+                    type:'POST',
+                    dataType: 'json',
+                    url: 'edit-admin.php',
+                    data:formdata,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success:function(data){
+                        
+                        if(data.status == "sukses"){
+
+                            $('#edit-user_id').val(data.data.user_id);
+                            $('#edit-username').val(data.data.username);
+                            $('#edit-password').val(data.data.password);
+                            $('#edit-fullname').val(data.data.fullname);
+                            $('#edit-gambar_admin').attr("src","gambar_admin/" + data.data.gambar_admin);
+                            $('#modal_edit').modal('show');
+                            
+                        }
+                        else{
+                            alert(data.pesan);
+                        }
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert("Error, mohon hubungi admin");
+                    }
+                });
+
+            }
+
+            //modal edit save admin
+            $("#form_edit_admin").submit(function (event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                console.log(formData);
+
+                $.ajax({
+                    type:'POST',
+                    dataType: 'json',
+                    url: 'update-admin.php',
+                    data:formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success:function(data){
+                        
+                        if(data.status == "berhasil"){ 
+                            Swal.fire({
+                            icon: 'success',
+                            title: 'Sukses',
+                            text: data.pesan
+                            }).then(() => {
+                                location.reload();
+                            });
+                        }
+                        else if(data.status == "gagal"){ 
+                            Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal',
+                            text: data.pesan
+                            }).then(() => {
+                                location.reload();
+                            });        
+                        }
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                       alert("Error, mohon hubungi admin");
+                    }
+                });
+
+            });
+
+    </script>
+
+    <script> 
+            $('.delete-link').on('click',function(e){
+                e.preventDefault();
+                const href = $(this).attr('href')
+
+                swal.fire({
+                        icon : 'warning',
+                        title: 'Perhatian',
+                        text : 'Apakah Anda Ingin Mengahapus Data ini?',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor : '#d33',
+                        confirmButtonText : 'Hapus Data',
+                        cancelButtonText : 'Batal',
+                }).then((result) => {
+                    if (result.value){
+                        document.location.href = href;
+                    }
+                });
+            });
+    </script>
+
 </body>
+
 </html>

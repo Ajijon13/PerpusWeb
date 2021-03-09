@@ -180,7 +180,7 @@ $_SESSION['start_time'] = time();
               <!-- row end -->
                 </section><!-- /.content -->
                 <div class="footer-main">
-                   APLIKASI PERPUSTAKAAN SMPN 2 PACIRAN
+                   <strong>PERPUSTAKAAN SMPN 2 PACIRAN</strong>
                 </div>
             </aside><!-- /.right-side -->
 

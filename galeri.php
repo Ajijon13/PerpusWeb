@@ -31,14 +31,12 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
-
+    <link rel="stylesheet" href="admin/assets/fancybox/dist/jquery.fancybox.min.css">
+   
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
 
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
 
 </head>
 <body class="host_version"> 
@@ -58,7 +56,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="index.php">
-					<img src="logo.png" alt="" class="img-fluid" width="250px" />
+                <img src="images/logo/logoperpus.png" alt="" class="img-fluid"  />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="icon-bar"></span>
@@ -67,7 +65,7 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-host">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="index.php">Beranda</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
 						<li class="nav-item"><a class="nav-link" href="profil.php">Profil</a></li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="" id="dropdown-a" data-toggle="dropdown">Koleksi </a>
@@ -91,7 +89,7 @@
                                 <a class="dropdown-item" href="kcetak.php">Koleksi Cetak & Non Cetak</a>
 							</div>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="galeri.php">Galeri </a></li>
+                        <li class="nav-item active"><a class="nav-link " href="galeri.php">Galeri </a></li>
 						<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
@@ -101,41 +99,45 @@
 			</div>
 		</nav>
 	</header>
-	<!-- End header -->
-	
+    <!-- End header -->
+    
     <div class="all-title-box">
         <div class="all-title-box-tembus">
 		    <div class="container text-center">
-			    <h1>Galeri</h1>
+			    <h1>GALERI</h1>
             </div>
         </div>
-    </div>
+	</div>
+	
+    <div id="overviews" class="section lb">
+        <div class="container">
 
-    <section class="page-section">
-		<div class="container">
-            <?php
-                $query="select * from galeri";
-                $tampil=mysql_query($query) or die(mysql_error());
-            ?>
-			<div class="timeline">
-				<div class="timeline__wrap">
-					<div class="timeline__items">
-            <?php while($data=mysql_fetch_array($tampil)){ 
-            ?>
-						<div class="timeline__item">
-							<div class="timeline__content img-bg-01">
-                            <p><img src="admin/gambar/<?php echo $data['gambar_galeri']; ?>"  class="img-fluid img-rounded"></p>
-                            </div>
-                        </div>
-            <?php   
-            } 
-            ?>
-					
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+            <hr class="invis"> 
+                
+            <div class="row"> 
+                <?php
+							$query="select * from galeri";
+							$tampil=mysql_query($query) or die(mysql_error());
+                ?>
+                <?php while($data=mysql_fetch_array($tampil)){ 
+           		?>
+                
+                    <div class="icon-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+                        <a class="fancybox" href="admin/gambar_galeri/<?php echo $data['gambar_galeri']; ?>" 
+                        data-fancybox-group="admin/gambar_galeri">
+                        <img src="admin/gambar_galeri/<?php echo $data['gambar_galeri']; ?>"   width="150" height="150">
+                        </a>
+                    </div><!-- end icon-wrapper -->
+                   
+                <?php
+                }
+                ?>
+                  <hr class="hr3"> 
+            </div><!-- end row -->
+          
+           
+        </div><!-- end container -->
+    </div><!-- end section -->
 
     <footer class="footer">
         <div class="container">
@@ -143,39 +145,13 @@
                 <div class="col-lg-4 col-md-4 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
-                            <h3>About US</h3>
-                        </div>
-                        <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
-                        <p>Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
-
-				<div class="col-lg-4 col-md-4 col-xs-12">
-                    <div class="widget clearfix">
-                        <div class="widget-title">
-                            <h3>Information Link</h3>
-                        </div>
-                        <ul class="footer-links">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Pricing</a></li>
-							<li><a href="#">About</a></li>
-							<li><a href="#">Faq</a></li>
-							<li><a href="#">Contact</a></li>
-                        </ul><!-- end links -->
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
-				
-                <div class="col-lg-4 col-md-4 col-xs-12">
-                    <div class="widget clearfix">
-                        <div class="widget-title">
                             <h3>Contact Details</h3>
                         </div>
 
                         <ul class="footer-links">
-                            <li><a href="mailto:#">info@yoursite.com</a></li>
-                            <li><a href="#">www.yoursite.com</a></li>
-                            <li>PO Box 16122 Collins Street West Victoria 8007 Australia</li>
+                            <li><a href="mailto:#">samuderaillmu0@gmail.com</a></li>
+                            <li><a href="#">www.smpn2paciran.sch.id</a></li>
+                            <li>Komplek Pondok Pesantern Sunan Drajad</li>
                             <li>+61 3 8376 6284</li>
                         </ul><!-- end links -->
                     </div><!-- end clearfix -->
@@ -189,7 +165,7 @@
         <div class="container">
             <div class="footer-distributed">
                 <div class="footer-left">                   
-                    <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">QuickCloud</a> Design By : <a href="https://html.design/">html design</a></p>
+                    <p class="footer-company-name"> &copy; 2020 Perpustakaan SMPN 2 Paciran </a></p>
                 </div>
 
                 <div class="footer-right">
@@ -211,7 +187,8 @@
     <script src="js/all.js"></script>
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
-	<script src="js/timeline.min.js"></script>
+    <script src="js/timeline.min.js"></script>
+    <script src="admin/assets/fancybox/dist/jquery.fancybox.min.js"></script>
 	<script>
 		timeline(document.querySelectorAll('.timeline'), {
 			forceVerticalMode: 700,
@@ -220,5 +197,10 @@
 			visibleItems: 4
 		});
 	</script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $(".fancybox").fancybox();
+    });
+    </script>
 </body>
 </html>

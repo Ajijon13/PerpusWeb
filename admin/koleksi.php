@@ -7,100 +7,80 @@ if (empty($_SESSION['username'])){
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
-    <title>PERPUSTAKAAN SAMUDERA ILMU</title>
+    <title>Perpustakaan SMPN 2 PACIRAN</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <meta name="description" content="Hakko Bio Richard">
-    <meta name="keywords" content="Perpus, Website, Aplikasi, Perpustakaan, Online">
+    <meta name="keywords" content="Perpustakaan SMPN 2 PACIRAN">
+
     <!-- bootstrap 3.0.2 -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="assets/DataTables-Savage/datatables.min.css" />
     <!-- font Awesome -->
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="assets/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-    <!-- Morris chart -->
-    <link href="assets/css/morris/morris.css" rel="stylesheet" type="text/css" />
-    <!-- jvectormap -->
-    <link href="assets/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
-    <!-- Date Picker -->
-    <link href="assets/css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
-    <!-- fullCalendar -->
-    <!-- <link href="css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" /> -->
-    <!-- Daterange picker -->
-    <link href="assets/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <!-- iCheck for checkboxes and radio inputs -->
     <link href="assets/css/iCheck/all.css" rel="stylesheet" type="text/css" />
-    <!-- bootstrap wysihtml5 - text editor -->
-    <!-- <link href="css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" /> -->
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <!-- Theme style -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 
 
+    <style type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-          <![endif]-->
+    </style>
+</head>
 
-          <style type="text/css">
-
-          </style>
-      </head>
-      <body class="skin-black">
-        <!-- header logo: style can be found in header.less -->
-        <header class="header">
-            <a href="index.php" class="logo">
-			<br>
-                <strong>PERPUSTAKAAN SAMUDERA ILMU</strong>
+<body class="skin-black">
+    <!-- header logo: style can be found in header.less -->
+    <header class="header">
+        <a href="index.php" class="logo">
+            <br><strong>PERPUSTAKAAN SMPN 2 PACIRAN</strong>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav">
-                        
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-user"></i>
-                                <span><?php echo $_SESSION['fullname']; ?> <i class="caret"></i></span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                                <li class="dropdown-header text-center">Account</li>
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
 
-                                    <li>
-                                        <a href="detail-admin.php?hal=edit&kd=<?php echo $_SESSION['user_id'];?>">
-                                        <i class="fa fa-user fa-fw pull-right"></i>
-                                            Profile
-                                        </a>
-                                        <a href="admin.php">
-                                        <i class="fa fa-cog fa-fw pull-right"></i>
-                                            Settings
-                                        </a>
-                                        </li>
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>
+                            <span><?php echo $_SESSION['fullname']; ?> <i class="caret"></i></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                            <li class="dropdown-header text-center">Account</li>
 
-                                        <li class="divider"></li>
+                            <li>
+                                <a href="detail-admin.php?hal=edit&kd=<?php echo $_SESSION['user_id'];?>">
+                                    <i class="fa fa-user fa-fw pull-right"></i>
+                                    Profile
+                                </a>
+                                <a href="admin.php">
+                                    <i class="fa fa-cog fa-fw pull-right"></i>
+                                    Settings
+                                </a>
+                            </li>
 
-                                        <li>
-                                            <a href="../logout.php"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </header>
-                <?php
+                            <li class="divider"></li>
+
+                            <li>
+                                <a href="../logout.php"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <?php
 $timeout = 10; // Set timeout minutes
 $logout_redirect_url = "../login.html"; // Set logout URL
 
@@ -114,188 +94,477 @@ if (isset($_SESSION['start_time'])) {
 }
 $_SESSION['start_time'] = time();
 ?>
-<?php } ?>
-                <div class="wrapper row-offcanvas row-offcanvas-left">
-                    <!-- Left side column. contains the logo and sidebar -->
-                    <aside class="left-side sidebar-offcanvas">
-                        <!-- sidebar: style can be found in sidebar.less -->
-                        <section class="sidebar">
-						<br>
-						<br>
-                            <!-- search form -->
-                            <!--<form action="#" method="get" class="sidebar-form">
-                                <div class="input-group">
-                                    <input type="text" name="q" class="form-control" placeholder="Searchassets."/>
-                                    <span class="input-group-btn">
-                                        <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-                                    </span>
-                                </div>
-                            </form> -->
-                            <!-- /.search form -->
-                            <!-- sidebar menu: : style can be found in sidebar.less -->
-                            <?php include "menu.php"; ?>
-                        </section>
-                        <!-- /.sidebar -->
-                    </aside>
+    <?php } ?>
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="left-side sidebar-offcanvas">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <br>
+                <br>
+                <?php include "menu.php"; ?>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
 
-                    <aside class="right-side">
+        <aside class="right-side">
 
-                <!-- Main content -->
-                <section class="content">
+            <!-- Main content -->
+            <section class="content">
 
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="panel">
-                                <header class="panel-heading">
-                                    <b>Data Koleksi</b>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel">
+                            <header class="panel-heading">
+                                <b>Data Koleksi</b>
 
-                                </header>
-                                <!-- <div class="box-header"> -->
-                                    <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
+                            </header>
+                            <div class="text-left" style="margin-top: 10px;">
+                                &nbsp; <a href="koleksi.php" class="btn btn-sm btn-warning">Refresh</a>
+                                <a href="#" class="btn btn-sm btn-success" data-toggle="modal"
+                                    data-target="#modal_tambah_koleksi">Tambah Koleksi</a>
+                            </div>
 
-                                <!-- </div> -->
-                                <div class="panel-body table-responsive">
-                                    <div class="box-tools m-b-15">
+                            <!-- Modal -->
+                            <div id="modal_tambah_koleksi" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Tambah Koleksi</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <form class="form-horizontal style-form" style="margin-top: 20px;"
+                                                id="form_tambah_koleksi">
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Tanggal Input</label>
+                                                    <div class="col-sm-8">
+                                                        <input name="tgl_input" type="date" 
+                                                            class="form-control" autocomplete="off" required=""/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Koleksi</label>
+                                                    <div class="col-sm-8">
+                                                    <select name="koleksi" type="text"  class="form-control"
+                                                            autocomplete="off" placeholder="Pilih koleksi" required="">
+                                                            <option value="">Pilih Koleksi</option>
+                                                            <option value="Cetak">Cetak</option>
+                                                            <option value='Non Cetak'>Non Cetak</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Keterangan</label>
+                                                    <div class="col-sm-8">
+                                                        <input name="keterangan" type="text" class="form-control" autocomplete="off"
+                                                            placeholder="" required="" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Jumlah Asal</label>
+                                                    <div class="col-sm-8">
+                                                        <input name="jumlah" type="number" class="form-control" autocomplete="off"
+                                                            required="" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Tambahan</label>
+                                                    <div class="col-sm-8">
+                                                        <input name="tambahan" type="number" class="form-control" autocomplete="off"
+                                                            required="" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Total</label>
+                                                    <div class="col-sm-8">
+                                                        <input name="total" type="number" class="form-control" autocomplete="off"
+                                                            required="" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" style="margin-bottom: 20px;">
+                                                    <label class="col-sm-3 control-label text-right"></label>
+                                                    <div class="col-sm-8">
+                                                        <button id="button_tambah_koleksi" type="submit"
+                                                            class="btn btn-primary">Upload</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                        </div>
                                     </div>
-                    <?php
+
+                                </div>
+                            </div>
+
+                            <div class="panel-body table-responsive">
+                                <?php
                     $query1="select * from koleksi";
                     $tampil=mysql_query($query1) or die(mysql_error());
                     ?>
-                        <table id="example" class="table table-hover table-bordered">
-                  <thead>
-                      <tr>
-                        <th><center>Detail </center></th>
-                        <th><center>Koleksi</center></th>
-                        <th><center>Keterangan</center></th>
-                        <th><center>Tanggal Input</center></th>
-                        <th><center>Opsi</center></th>
-                      </tr>
-                  </thead>
-                     <?php while($data=mysql_fetch_array($tampil))
+                                <table id="myTabel" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th><center>Koleksi</center></th>
+                                        <th><center>Keterangan</center></th>
+                                        <th><center>Jumlah Kesuluruhan</center></th>
+                                        <th><center>Tanggal Input</center></th>
+                                        <th><center>Opsi</center></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while($data=mysql_fetch_array($tampil))
                     { ?>
-                    <tbody>
-                    <tr>
-                    <td><a href="detail-koleksi.php?hal=edit&kd=<?php echo $data['id'];?>"><span class="glyphicon glyphicon-file"></span> lihat </a></td>
-                    <td><?php echo $data['koleksi'];?></td>
-                    <td><?php echo $data['keterangan'];?></td>
-                    <td><?php echo $data['tgl_input'];?></td>
-                    <td><center><div id="thanks"><a class="btn btn-sm btn-primary" data-placement="bottom" data-toggle="tooltip" title="Edit" href="edit-koleksi.php?hal=edit&kd=<?php echo $data['id'];?>"><span class="glyphicon glyphicon-edit"></span></a>
-                    <a onclick="return confirm ('Yakin hapus data<?php echo $data['keterangan'];?>.?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus" href="hapus-koleksi.php?hal=hapus&kd=<?php echo $data['id'];?>"><span class="glyphicon glyphicon-trash"></a></center></td></tr></div>
-                 <?php   
+                                        <tr>
+                                            <td><a href="detail-koleksi.php?hal=edit&kd=<?php echo $data['id'];?>"><span
+                                                        class="fa fa-book"> Koleksi</span>
+                                                    <?php echo $data['koleksi']; ?></a>
+                                            </td>
+                                            <td><?php echo $data['keterangan'];?></td>
+                                            <td><?php echo $data['total'];?></td>
+                                            <td><?php echo $data['tgl_input'];?></td>
+                                            <td>
+                                                <center>
+
+                                                    <a class="btn btn-sm btn-primary" data-placement="bottom"
+                                                        title="Edit Koleksi"
+                                                        onclick="OpenModalEdit(<?php echo $data['id'];?>);">
+                                                        <span>Edit</span>
+                                                    </a>
+                                                    <a class="delete-link" data-placement="bottom" title="Hapus Koleksi"
+                                                        href="hapus-koleksi.php?hal=hapus&kd=<?php echo $data['id'];?>"
+                                                        data-placement="bottom">
+                                                        <span class="btn btn-sm btn-danger">Hapus</span></a>
+                                                </center>
+                                            </td>
+                                        </tr>
+
+                                        <?php   
               } 
               ?>
-                   </tbody>
-                   </table>
-                <div class="text-right" style="margin-top: 10px;">
-                    <a href="koleksi.php" class="btn btn-sm btn-info">Refresh</a> <a href="input-koleksi.php" class="btn btn-sm btn-warning">Input Koleksi</a>
+                                    </tbody>
+                                </table>
+
+                                <?php $tampil=mysql_query("select * from koleksi order by id");
+                                $koleksi=mysql_num_rows($tampil);
+                            ?>
+                                <center>
+                                    <h4>Jumlah Koleksi: <?php echo "$koleksi"; ?> Data </h4>
+                                </center>
+
+
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+                    </div>
                 </div>
-   
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
+                <!-- row end -->
+            </section><!-- /.content -->
+            <div class="footer-main">
+                <strong>PERPUSTAKAAN SMPN 2 PACIRAN</strong>
+            </div>
+        </aside><!-- /.right-side -->
+
+    </div><!-- ./wrapper -->
+
+    <!--modal edit -->
+
+    <!-- Modal -->
+    <div id="modal_edit" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Koleksi</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-xs-14">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <form class="form-horizontal style-form" style="margin-top: 20px;"
+                                        id="form_edit_koleksi">
+                                        <div class="form-group">
+                                            <div class="col-sm-4">
+                                                <input name="id" type="hidden" id="edit-id" class="form-control"
+                                                    autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class=" col-sm-3 control-label">Tanggal</label>
+                                            <div class="col-sm-8">
+                                                <input name="tgl_input" type="date" id="edit-tgl_input"
+                                                    class="form-control" autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Koleksi</label>
+                                                    <div class="col-sm-8">
+                                                        <select name="koleksi" type="text" id="edit-koleksi" class="form-control"
+                                                            autocomplete="off" placeholder="Pilih koleksi" required="">
+                                                            <option value="">Pilih Koleksi</option>
+                                                            <option value="Cetak">Cetak</option>
+                                                            <option value='Non Cetak'>Non Cetak</option>
+                                                        </select>
+                                                    </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class=" col-sm-3 control-label">Keterangan</label>
+                                            <div class="col-sm-8">
+                                                <input name="keterangan" type="text" id="edit-keterangan"
+                                                    class="form-control" autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class=" col-sm-3 control-label">Jumlah Asal</label>
+                                            <div class="col-sm-8">
+                                                <input name="jumlah" type="text" id="edit-jumlah"
+                                                    class="form-control" autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class=" col-sm-3 control-label">Tambahan</label>
+                                            <div class="col-sm-8">
+                                                <input name="tambahan" type="text" id="edit-tambahan"
+                                                    class="form-control" autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class=" col-sm-3 control-label">Total</label>
+                                            <div class="col-sm-8">
+                                                <input name="total" type="text" id="edit-total"
+                                                    class="form-control" autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" style="margin-bottom: 20px;">
+                                            <label class="col-sm-3  control-label"></label>
+                                            <div class="col-sm-8">
+                                                <input type="submit" name="upload" value="Update"
+                                                    class="btn btn-sm btn-primary" />
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
-              <!-- row end -->
-                </section><!-- /.content -->
-                <div class="footer-main">
-                   PERPUSTAKAAN SMPN 2 NEGERI PACIRAN
+
                 </div>
-            </aside><!-- /.right-side -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Keluar</button>
+                </div>
+            </div>
 
-        </div><!-- ./wrapper -->
+        </div>
+    </div>
 
+    <script type="text/javascript" src="assets/DataTables-Savage/datatables.min.js"></script>
+    <script src="assets/js/sweetalert2.all.min.js" type="text/javascript"></script>
+    <!-- jQuery UI 1.10.3 -->
+    <script src="assets/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+    <!-- Bootstrap -->
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- daterangepicker -->
+    <script src="assets/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
 
-        <!-- jQuery 2.0.2 -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-        <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/plugins/chart.js" type="text/javascript"></script>
+    <!-- iCheck -->
+    <script src="assets/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
 
-        <!-- jQuery UI 1.10.3 -->
-        <script src="assets/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
-        <!-- Bootstrap -->
-        <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-        <!-- daterangepicker -->
-        <script src="assets/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+    <!-- Director App -->
+    <script src="assets/js/Director/app.js" type="text/javascript"></script>
 
-        <script src="assets/js/plugins/chart.js" type="text/javascript"></script>
+    <script>
+        $('#noti-box').slimScroll({
+            height: '400px',
+            size: '5px',
+            BorderRadius: '5px'
+        });
 
-        <!-- datepicker
-        <script src="js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>-->
-        <!-- Bootstrap WYSIHTML5
-        <script src="js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>-->
-        <!-- iCheck -->
-        <script src="assets/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-        <!-- calendar -->
-        <script src="assets/js/plugins/fullcalendar/fullcalendar.js" type="text/javascript"></script>
-
-        <!-- Director App -->
-        <script src="assets/js/Director/app.js" type="text/javascript"></script>
-
-        <!-- Director dashboard demo (This is only for demo purposes) -->
-        <script src="assets/js/Director/dashboard.js" type="text/javascript"></script>
-
-        <!-- Director for demo purposes -->
-        <script type="text/javascript">
-            $('input').on('ifChecked', function(event) {
-                // var element = $(this).parent().find('input:checkbox:first');
-                // element.parent().parent().parent().addClass('highlight');
-                $(this).parents('li').addClass("task-done");
-                console.log('ok');
+        $('input[type="checkbox"].flat-grey, input[type="radio"].flat-grey').iCheck({
+            checkboxClass: 'icheckbox_flat-grey',
+            radioClass: 'iradio_flat-grey'
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#myTabel').DataTable({
+                language: {
+                    url: 'assets/DataTables-Savage/Indonesian.json'
+                }
             });
-            $('input').on('ifUnchecked', function(event) {
-                // var element = $(this).parent().find('input:checkbox:first');
-                // element.parent().parent().parent().removeClass('highlight');
-                $(this).parents('li').removeClass("task-done");
-                console.log('not');
-            });
+        });
+    </script>
+    <script>
+        //tambah kode script
+        //modal tambah koleksi
+        $("#form_tambah_koleksi").submit(function (event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            console.log(formData);
 
-        </script>
-        <script>
-            $('#noti-box').slimScroll({
-                height: '400px',
-                size: '5px',
-                BorderRadius: '5px'
-            });
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: 'upload-koleksi.php',
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
 
-            $('input[type="checkbox"].flat-grey, input[type="radio"].flat-grey').iCheck({
-                checkboxClass: 'icheckbox_flat-grey',
-                radioClass: 'iradio_flat-grey'
-            });
-</script>
-<script type="text/javascript">
-    $(function() {
-                "use strict";
-                //BAR CHART
-                var data = {
-                    labels: ["January", "February", "March", "April", "May", "June", "July"],
-                    datasets: [
-                        {
-                            label: "My First dataset",
-                            fillColor: "rgba(220,220,220,0.2)",
-                            strokeColor: "rgba(220,220,220,1)",
-                            pointColor: "rgba(220,220,220,1)",
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: "rgba(220,220,220,1)",
-                            data: [65, 59, 80, 81, 56, 55, 40]
-                        },
-                        {
-                            label: "My Second dataset",
-                            fillColor: "rgba(151,187,205,0.2)",
-                            strokeColor: "rgba(151,187,205,1)",
-                            pointColor: "rgba(151,187,205,1)",
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: "rgba(151,187,205,1)",
-                            data: [28, 48, 40, 19, 86, 27, 90]
-                        }
-                    ]
-                };
-            new Chart(document.getElementById("linechart").getContext("2d")).Line(data,{
-                responsive : true,
-                maintainAspectRatio: false,
+                    if (data.status == "berhasil") {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Sukses',
+                            text: data.pesan
+                        }).then(() => {
+                            location.reload();
+                        });
+                    } else if (data.status == "gagal") {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal',
+                            text: data.pesan
+                        }).then(() => {
+                            location.reload();
+                        });
+                    }
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Error, mohon hubungi admin");
+                }
             });
 
+        });
+
+        //modal edit koleksi
+        function OpenModalEdit(id) {
+
+            //get existing data
+            var formdata = new FormData();
+            formdata.append('id', id);
+            formdata.append('usage', 'get-data');
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: 'edit-koleksi.php',
+                data: formdata,
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+
+                    if (data.status == "sukses") {
+
+                        $('#edit-id').val(data.data.id);
+                        $('#edit-tgl_input').val(data.data.tgl_input);
+                        $('#edit-koleksi').val(data.data.koleksi);
+                        $('#edit-keterangan').val(data.data.keterangan);
+                        $('#edit-jumlah').val(data.data.jumlah);
+                        $('#edit-tambahan').val(data.data.tambahan);
+                        $('#edit-total').val(data.data.total);
+                        $('#modal_edit').modal('show');
+
+                    } else {
+                        alert(data.pesan);
+                    }
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Error, mohon hubungi admin");
+                }
             });
-            // Chart.defaults.global.responsive = true;
-</script>
+
+        }
+
+        //modal edit save koleksi
+        $("#form_edit_koleksi").submit(function (event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            console.log(formData);
+
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: 'update-koleksi.php',
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+
+                    if (data.status == "berhasil") {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Sukses',
+                            text: data.pesan
+                        }).then(() => {
+                            location.reload();
+                        });
+                    } else if (data.status == "gagal") {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal',
+                            text: data.pesan
+                        }).then(() => {
+                            location.reload();
+                        });
+                    }
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Error, mohon hubungi admin");
+                }
+            });
+
+        });
+    </script>
+
+    <script>
+        $('.delete-link').on('click', function (e) {
+            e.preventDefault();
+            const href = $(this).attr('href')
+
+            swal.fire({
+                icon: 'warning',
+                title: 'Perhatian',
+                text: 'Apakah Anda Ingin Mengahapus Data ini?',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Hapus Data',
+                cancelButtonText: 'Batal',
+            }).then((result) => {
+                if (result.value) {
+                    document.location.href = href;
+                }
+            });
+        });
+    </script>
+
 </body>
+
 </html>

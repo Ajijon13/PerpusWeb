@@ -1,6 +1,6 @@
 <?php 
         include "../conn.php";
-        if($_POST['upload']){
+
             $judul              = $_POST['judul'];
             $pengarang          = $_POST['pengarang'];
             $tempatdanpenerbit  = $_POST['tempatdanpenerbit'];
@@ -22,18 +22,39 @@
                     move_uploaded_file($file_tmp1,'sampul_buku/'.$nama1);
                     $query=mysql_query("INSERT INTO buku_paket VALUES(NULL, '$judul','$pengarang','$tempatdanpenerbit','$isbn','$jumlahhalaman','$kategori','$nama','$nama1')");
                     if($query){
-                        echo "<script>alert('Data berhasil diupload'); window.location = 'bukupaket.php'</script>";
+
+                        $data = array(
+                            "status" => "berhasil",
+                            "pesan" => "Data berhasil diupload"
+                        );
+                        header('Content-Type: application/json');
+                        echo json_encode($data);
+
                     }
                     else{
-                        echo "<script>alert('Data gagal diupload'); window.location = 'bukupaket.php'</script>";
+                        $data = array(
+                            "status" => "gagal",
+                            "pesan" => "Data gagal diupload"
+                        );
+                        header('Content-Type: application/json');
+                        echo json_encode($data);
                     }
                 }
                 else{
-                    echo "<script>alert('Ukuran File Terlalu Besar'); window.location = 'bukupaket.php'</script>";
+                    $data = array(
+                        "status" => "gagal",
+                        "pesan" => "File terlalu besar"
+                    );
+                    header('Content-Type: application/json');
+                    echo json_encode($data);
                 }
             }
             else{
-                echo "<script>alert('Ekstensi File Harus Pdf dan Docx'); window.location = 'bukupaket.php'</script>";
+                $data = array(
+                    "status" => "gagal",
+                    "pesan" => "File harus PDF"
+                );
+                header('Content-Type: application/json');
+                echo json_encode($data);
             }
-        }
-        ?> 
+        ?>
