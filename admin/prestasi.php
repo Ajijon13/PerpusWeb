@@ -14,19 +14,10 @@ if (empty($_SESSION['username'])){
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="keywords" content="Perpustakaan SMPN 2 PACIRAN">
     <!-- bootstrap 3.0.2 -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="assets/DataTables-Savage/datatables.min.css"/>
     <!-- font Awesome -->
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Ionicons -->
-    <link href="assets/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-    <!-- Morris chart -->
-    <link href="assets/css/morris/morris.css" rel="stylesheet" type="text/css" />
-    <!-- jvectormap -->
-    <link href="assets/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
-
-    <!-- iCheck for checkboxes and radio inputs -->
-    <link href="assets/css/iCheck/all.css" rel="stylesheet" type="text/css" />
-
+   
     <!-- Theme style -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 
@@ -62,16 +53,16 @@ if (empty($_SESSION['username'])){
                             <span><?php echo $_SESSION['fullname']; ?> <i class="caret"></i></span>
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                            <li class="dropdown-header text-center">Account</li>
+                            <li class="dropdown-header text-center">Akun</li>
 
                             <li>
                                 <a href="detail-admin.php?hal=edit&kd=<?php echo $_SESSION['user_id'];?>">
                                     <i class="fa fa-user fa-fw pull-right"></i>
-                                    Profile
+                                    Profil
                                 </a>
                                 <a href="admin.php">
                                     <i class="fa fa-cog fa-fw pull-right"></i>
-                                    Settings
+                                    Pengaturan
                                 </a>
                             </li>
 
@@ -186,7 +177,7 @@ $_SESSION['start_time'] = time();
                     $query1="select * from prestasi";
                     $tampil=mysql_query($query1) or die(mysql_error());
                     ?>
-                                <table id="example" class="table table-hover table-bordered">
+                                <table id="myTabel" class="table table-hover table-bordered">
                                     <thead>
                                         <tr>
                                             <th>
@@ -328,27 +319,12 @@ $_SESSION['start_time'] = time();
         </div>
     </div>
 
-    <!-- jQuery 2.0.2 -->
-    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
-
-    <!-- jQuery UI 1.10.3 -->
-    <script src="assets/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
-    <!-- Bootstrap -->
-    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- daterangepicker -->
-    <script src="assets/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
-
-    <script src="assets/js/plugins/chart.js" type="text/javascript"></script>
-    <!-- iCheck -->
-    <script src="assets/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-    <!-- calendar -->
-    <script src="assets/js/plugins/fullcalendar/fullcalendar.js" type="text/javascript"></script>
-
+    <script src="assets/js/sweetalert2.all.min.js" type="text/javascript"></script>
+     <!-- jQuery UI 1.10.3 --> 
+     <script type="text/javascript" src="assets/DataTables-Savage/datatables.min.js"></script>
+     <script src="assets/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
     <!-- Director App -->
     <script src="assets/js/Director/app.js" type="text/javascript"></script>
-
-
-    <script src="assets/js/sweetalert2.all.min.js" type="text/javascript"></script>
 
 
     <script>
@@ -363,7 +339,15 @@ $_SESSION['start_time'] = time();
             radioClass: 'iradio_flat-grey'
         });
     </script>
-
+    <script>
+        $(document).ready(function(){
+            $('#myTabel').DataTable( {
+                language: {
+                    url: 'assets/DataTables-Savage/Indonesian.json'
+                }
+            });
+        });
+    </script>
     <script>
         //tambah kode script
         //modal tambah 

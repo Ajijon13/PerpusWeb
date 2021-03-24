@@ -1,26 +1,26 @@
-                <table class="table table-striped" id="dt_table">
+<table class="table-bordered">
 							<thead>
-								<tr>
-									<th>
+								<tr class="domain-head">
+									<th >
 										Judul
 									</th>
-									<th>
+									<th >
 										Pengarang
 									</th>
-									<th>
+									<th >
 										penerbit & tempat terbit
 									</th>
-                                    <th>
+                                    <th >
 										ISBN
 									</th>
-                                    <th>
+                                    <th >
 										Jumlah 
                                         <br>halaman
 									</th>
-                                    <th>
+                                    <th >
 										Kategori
 									</th>
-									<th>
+									<th >
 										File
 									</th>
 								</tr>
@@ -63,7 +63,7 @@
                                     <td><?php echo $isbn; ?></td>
                                     <td><?php echo $jumlahhalaman; ?></td>
 									<td><?php echo $kategori; ?></td>
-									<td><a href="admin/file_pdf/viewpdf.php?file_name=<?php echo $file_ebook;?>" target="_blank"> Buka Pdf</a></td>
+									<td><a href="admin/file_pdf/viewpdf.php?file_name=<?php echo $file_ebook;?>" target="_blank" class="btn btn-sm btn-success"> Buka Pdf</a></td>
                                 </tr>
                                 <?php } } else { ?> 
                                 <tr>
@@ -72,5 +72,3 @@
                             <?php } ?>
 							</tbody>
 						</table>
-                       
-

@@ -1,7 +1,6 @@
 /*jslint passfail: true, nomen: true, vars: true, white: true, indent: 2, maxerr: 999 */
 
 /*
- * Developed by : www.toepoke.co.uk
  *
  * If you redistribute this file, please keep this section in place
  *

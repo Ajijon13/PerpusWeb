@@ -134,6 +134,10 @@ $_SESSION['start_time'] = time();
                     </td>
                     </tr>
                     <tr>
+                    <td width="250"><strong>Judul</strong></td>
+                    <td width="550"><?php echo $data['judul']; ?></td>
+                    </tr>
+                    <tr>
                     <td width="250"><strong>Keterangan</strong></td>
                     <td width="550"><?php echo $data['keterangan']; ?></td>
                     </tr>

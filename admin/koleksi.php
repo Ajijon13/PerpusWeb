@@ -18,10 +18,6 @@ if (empty($_SESSION['username'])){
     <link rel="stylesheet" type="text/css" href="assets/DataTables-Savage/datatables.min.css" />
     <!-- font Awesome -->
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Ionicons -->
-    <link href="assets/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-    <!-- iCheck for checkboxes and radio inputs -->
-    <link href="assets/css/iCheck/all.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 
@@ -56,16 +52,16 @@ if (empty($_SESSION['username'])){
                             <span><?php echo $_SESSION['fullname']; ?> <i class="caret"></i></span>
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                            <li class="dropdown-header text-center">Account</li>
+                            <li class="dropdown-header text-center">Akun</li>
 
                             <li>
                                 <a href="detail-admin.php?hal=edit&kd=<?php echo $_SESSION['user_id'];?>">
                                     <i class="fa fa-user fa-fw pull-right"></i>
-                                    Profile
+                                    Profil
                                 </a>
                                 <a href="admin.php">
                                     <i class="fa fa-cog fa-fw pull-right"></i>
-                                    Settings
+                                    Pengaturan
                                 </a>
                             </li>
 
@@ -141,9 +137,9 @@ $_SESSION['start_time'] = time();
                                                 id="form_tambah_koleksi">
 
                                                 <div class="form-group">
-                                                    <label class="col-sm-3 control-label">Tanggal Input</label>
+                                                    <label class="col-sm-3 control-label">Tahun Pelajaran</label>
                                                     <div class="col-sm-8">
-                                                        <input name="tgl_input" type="date" 
+                                                        <input name="th_pel" type="text" 
                                                             class="form-control" autocomplete="off" required=""/>
                                                     </div>
                                                 </div>
@@ -220,7 +216,7 @@ $_SESSION['start_time'] = time();
                                         <th><center>Koleksi</center></th>
                                         <th><center>Keterangan</center></th>
                                         <th><center>Jumlah Kesuluruhan</center></th>
-                                        <th><center>Tanggal Input</center></th>
+                                        <th><center>Tahun Pelajaran</center></th>
                                         <th><center>Opsi</center></th>
                                         </tr>
                                     </thead>
@@ -234,7 +230,7 @@ $_SESSION['start_time'] = time();
                                             </td>
                                             <td><?php echo $data['keterangan'];?></td>
                                             <td><?php echo $data['total'];?></td>
-                                            <td><?php echo $data['tgl_input'];?></td>
+                                            <td><?php echo $data['th_pel'];?></td>
                                             <td>
                                                 <center>
 
@@ -306,9 +302,9 @@ $_SESSION['start_time'] = time();
                                         </div>
                                         
                                         <div class="form-group">
-                                            <label class=" col-sm-3 control-label">Tanggal</label>
+                                            <label class=" col-sm-3 control-label">Tahun Pelajaran</label>
                                             <div class="col-sm-8">
-                                                <input name="tgl_input" type="date" id="edit-tgl_input"
+                                                <input name="th_pel" type="text" id="edit-th_pel"
                                                     class="form-control" autocomplete="off" value="" required="" />
                                             </div>
                                         </div>
@@ -383,15 +379,6 @@ $_SESSION['start_time'] = time();
     <script src="assets/js/sweetalert2.all.min.js" type="text/javascript"></script>
     <!-- jQuery UI 1.10.3 -->
     <script src="assets/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
-    <!-- Bootstrap -->
-    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- daterangepicker -->
-    <script src="assets/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
-
-    <script src="assets/js/plugins/chart.js" type="text/javascript"></script>
-    <!-- iCheck -->
-    <script src="assets/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-
     <!-- Director App -->
     <script src="assets/js/Director/app.js" type="text/javascript"></script>
 
@@ -480,7 +467,7 @@ $_SESSION['start_time'] = time();
                     if (data.status == "sukses") {
 
                         $('#edit-id').val(data.data.id);
-                        $('#edit-tgl_input').val(data.data.tgl_input);
+                        $('#edit-th_pel').val(data.data.th_pel);
                         $('#edit-koleksi').val(data.data.koleksi);
                         $('#edit-keterangan').val(data.data.keterangan);
                         $('#edit-jumlah').val(data.data.jumlah);

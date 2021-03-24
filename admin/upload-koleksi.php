@@ -1,14 +1,14 @@
 <?php 
     include "../conn.php";
-        $tgl_input = $_POST['tgl_input'];
+        $th_pel = $_POST['th_pel'];
         $koleksi = $_POST['koleksi'];
         $keterangan = $_POST['keterangan'];
         $jumlah = $_POST['jumlah'];
         $tambahan  = $_POST['tambahan'];
         $total = $_POST['total'];
 
-        $query = mysql_query("insert into koleksi (id, tgl_input, koleksi, keterangan, jumlah, tambahan, total)
-                values (null, '$tgl_input', '$koleksi', '$keterangan', '$jumlah', '$tambahan', '$total');
+        $query = mysql_query("insert into koleksi (id, th_pel, koleksi, keterangan, jumlah, tambahan, total)
+                values (null, '$th_pel', '$koleksi', '$keterangan', '$jumlah', '$tambahan', '$total');
         ");
         if($query){
 

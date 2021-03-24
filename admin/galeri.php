@@ -18,10 +18,6 @@ if (empty($_SESSION['username'])){
    <link rel="stylesheet" type="text/css" href="assets/DataTables-Savage/datatables.min.css"/>
     <!-- font Awesome -->
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Ionicons -->
-    <link href="assets/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-    <!-- iCheck for checkboxes and radio inputs -->
-    <link href="assets/css/iCheck/all.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 
@@ -56,16 +52,16 @@ if (empty($_SESSION['username'])){
                             <span><?php echo $_SESSION['fullname']; ?> <i class="caret"></i></span>
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                            <li class="dropdown-header text-center">Account</li>
+                            <li class="dropdown-header text-center">Akun</li>
 
                             <li>
                                 <a href="detail-admin.php?hal=edit&kd=<?php echo $_SESSION['user_id'];?>">
                                     <i class="fa fa-user fa-fw pull-right"></i>
-                                    Profile
+                                    Profil
                                 </a>
                                 <a href="admin.php">
                                     <i class="fa fa-cog fa-fw pull-right"></i>
-                                    Settings
+                                    Pengaturan
                                 </a>
                             </li>
 
@@ -318,15 +314,6 @@ $_SESSION['start_time'] = time();
     <script src="assets/js/sweetalert2.all.min.js" type="text/javascript"></script>
      <!-- jQuery UI 1.10.3 -->
      <script src="assets/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
-    <!-- Bootstrap -->
-    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- daterangepicker -->
-    <script src="assets/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
-
-    <script src="assets/js/plugins/chart.js" type="text/javascript"></script>
-    <!-- iCheck -->
-    <script src="assets/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-
     <!-- Director App -->
     <script src="assets/js/Director/app.js" type="text/javascript"></script>
 

@@ -56,14 +56,14 @@ if (empty($_SESSION['username'])){
                                 </a>
                                 <a href="admin.php">
                                     <i class="fa fa-cog fa-fw pull-right"></i>
-                                    pengaturan
+                                    Pengaturan
                                 </a>
                             </li>
 
                             <li class="divider"></li>
 
                             <li>
-                                <a href="../logout.php"><i class="fa fa-ban fa-fw pull-right"></i> keluar</a>
+                                <a href="../logout.php"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -351,12 +351,11 @@ $_SESSION['start_time'] = time();
     </div>
 
     <script type="text/javascript" src="assets/DataTables-Savage/datatables.min.js"></script>
+      
     <script src="assets/js/sweetalert2.all.min.js" type="text/javascript"></script>
     
      <!-- jQuery UI 1.10.3 -->
      <script src="assets/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
-    <!-- Bootstrap -->
-    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- Director App -->
     <script src="assets/js/Director/app.js" type="text/javascript"></script>
 

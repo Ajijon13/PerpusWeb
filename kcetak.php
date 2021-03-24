@@ -55,7 +55,17 @@
 				<div class="collapse navbar-collapse" id="navbars-host">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
-						<li class="nav-item"><a class="nav-link" href="profil.php">Profil</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="dropdown-a"
+                                data-toggle="dropdown">Profil</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="profil.php">Profil Perpustakaan </a>
+                                <a class="dropdown-item" href="visimisi.php">Visi & Misi </a>
+                                <a class="dropdown-item" href="struktur.php">Struktur Organisasi </a>
+                                <a class="dropdown-item" href="tatatertib.php">Tata Tertib </a>
+                                <a class="dropdown-item" href="prestasi.php">Prestasi </a>
+                            </div>
+                        </li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="" id="dropdown-a" data-toggle="dropdown">Koleksi </a>
 							<div class="dropdown-menu" aria-labelledby="dropdown-a">
@@ -79,7 +89,7 @@
 							</div>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="galeri.php">Galeri </a></li>
-						<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
                         <li><a class="hover-btn-new log" href="login.html" ><span>Admin Login</span></a></li>
@@ -116,53 +126,64 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="tab-content">
+                        
                         <div class="tab-pane active fade show" id="tab1">
-                            <?php
-											$query="select * from koleksi where koleksi='Cetak'";
-											$tampil=mysql_query($query) or die(mysql_error());
-							?>
-                            <div class="row text-center">
-                            <?php while($data=mysql_fetch_array($tampil)){ 
-           					?>
-                                <div class="col-md-4">
-                                        <div class="pricing-table pricing-table-highlighted">
-                                        <div class="pricing-table-header grd1">   </div>
-                                        <div class="pricing-table-space"></div>
-                                        <div class="pricing-table-features">
-										<p><?php echo $data['keterangan']; ?></p>
-                                        </div>
-									</div>
-                                </div>
-                                <?php   
-								} 
-								?>
-                            </div><!-- end row -->
-                            <br>
+                        <?php
+                    $query1="select * from koleksi where koleksi='Cetak'";
+                    $tampil=mysql_query($query1) or die(mysql_error());
+                    ?>
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th><center>Keterangan</center></th>
+                                        <th><center>Jumlah Kesuluruhan</center></th>
+                                        <th><center>Tahun Pelajaran</center></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while($data=mysql_fetch_array($tampil))
+                    { ?>
+                                        <tr>
+                                            <td><?php echo $data['keterangan'];?></td>
+                                            <td><?php echo $data['total'];?></td>
+                                            <td><?php echo $data['th_pel'];?></td>
+                                        </tr>
+
+                                        <?php   
+              } 
+              ?>
+                                    </tbody>
+                                </table>
                         </div><!-- end pane -->
+                              
 
                         <div class="tab-pane fade" id="tab2">
                         <?php
-											$query="select * from koleksi where koleksi='Non Cetak'";
-											$tampil=mysql_query($query) or die(mysql_error());
-						?>
-                            <div class="row text-center">
-                            <?php while($data=mysql_fetch_array($tampil)){ 
-           					?>
-                                <div class="col-md-4">
-                                    <div class="pricing-table pricing-table-highlighted">   
-                                        <div class="pricing-table-header grd1"></div>
-                                        <div class="pricing-table-space"></div>
-                                        <div class="pricing-table-features">
-										<p><?php echo $data['keterangan']; ?></p>
-                                        </div>  
-									</div>
-                                    <br>
-                                    <br>
-                                </div>
-                                <?php   
-										} 
-								?>
-                            </div><!-- end row -->
+                    $query1="select * from koleksi where koleksi='Non Cetak'";
+                    $tampil=mysql_query($query1) or die(mysql_error());
+                    ?>
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th><center>Keterangan</center></th>
+                                        <th><center>Jumlah Kesuluruhan</center></th>
+                                        <th><center>Tahun Pelajaran</center></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while($data=mysql_fetch_array($tampil))
+                    { ?>
+                                        <tr>
+                                            <td><?php echo $data['keterangan'];?></td>
+                                            <td><?php echo $data['total'];?></td>
+                                            <td><?php echo $data['th_pel'];?></td>
+                                        </tr>
+
+                                        <?php   
+              } 
+              ?>
+                                    </tbody>
+                                </table>
                         </div><!-- end pane -->
                     </div><!-- end content -->
                 </div><!-- end col -->

@@ -22,7 +22,7 @@
     <link rel="apple-touch-icon" href="logo1.png"/>
 
     <!-- Bootstrap CSS -->
-   <link rel="stylesheet" type="text/css" href="datatable-b4/datatables.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Site CSS -->
     <link rel="stylesheet" href="style.css">
     <!-- ALL VERSION CSS -->
@@ -51,7 +51,7 @@
 	<header class="top-navbar">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="index.html">
+				<a class="navbar-brand" href="index.php">
                 <img src="images/logo/logoperpus.png" alt="" class="img-fluid" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,12 +62,22 @@
 				<div class="collapse navbar-collapse" id="navbars-host">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
-						<li class="nav-item"><a class="nav-link" href="profil.php">Profil</a></li>
+						<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="dropdown-a"
+                                data-toggle="dropdown">Profil</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="profil.php">Profil Perpustakaan </a>
+                                <a class="dropdown-item" href="visimisi.php">Visi & Misi </a>
+                                <a class="dropdown-item" href="struktur.php">Struktur Organisasi </a>
+                                <a class="dropdown-item" href="tatatertib.php">Tata Tertib </a>
+                                <a class="dropdown-item" href="prestasi.php">Prestasi </a>
+                            </div>
+                        </li>
 						<li class="nav-item dropdown active">
 							<a class="nav-link dropdown-toggle" href="" id="dropdown-a" data-toggle="dropdown">Koleksi </a>
 							<div class="dropdown-menu" aria-labelledby="dropdown-a">
 								<a class="dropdown-item" href="ebook.php">E-book </a>
-								<a class="dropdown-item" href="hosting.html">Buku Paket </a>
+								<a class="dropdown-item" href="buku.php">Buku Paket </a>
 							</div>
                         </li>
                         <li class="nav-item dropdown">
@@ -86,7 +96,7 @@
 							</div>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="galeri.php">Galeri </a></li>
-						<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
                         <li><a class="hover-btn-new log" href="login.html" ><span>Admin Login</span></a></li>
@@ -128,7 +138,7 @@
 		    </div>
 		    <div class="col-sm-4">
 		        <div class="form-group form-inline">
-                <label class="tulisan"><h1>Keywoard</h1>&nbsp;</label>
+                <label class="tulisan"><h1>Kata Kunci</h1>&nbsp;</label>
                     <input type="text" name="s_keyword" id="s_keyword" class="form-control" style="width:500px">
                 </div>
 		    </div>
@@ -190,21 +200,13 @@
 
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 
-    <script type="text/javascript" src="datatable-b4/datatables.min.js"></script>
-
     <!-- ALL JS FILES -->
     <script src="js/all.js"></script>
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
     <script type="text/javascript">
 		$(document).ready(function(){
-		    $('.data').load("data.php", function(){
-                $("#dt_table").DataTable( {
-                    language: {
-                        url: 'datatable-b4/Indonesian.json'
-                    }
-                });
-            });
+		    $('.data').load("data.php");
 		    $("#search").click(function(){
 		    	var kategori = $("#s_kategori").val();
 		    	var keyword = $("#s_keyword").val();

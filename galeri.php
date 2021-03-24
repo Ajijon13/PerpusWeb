@@ -66,7 +66,17 @@
 				<div class="collapse navbar-collapse" id="navbars-host">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
-						<li class="nav-item"><a class="nav-link" href="profil.php">Profil</a></li>
+						<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="dropdown-a"
+                                data-toggle="dropdown">Profil</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="profil.php">Profil Perpustakaan </a>
+                                <a class="dropdown-item" href="visimisi.php">Visi & Misi </a>
+                                <a class="dropdown-item" href="struktur.php">Struktur Organisasi </a>
+                                <a class="dropdown-item" href="tatatertib.php">Tata Tertib </a>
+                                <a class="dropdown-item" href="prestasi.php">Prestasi </a>
+                            </div>
+                        </li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="" id="dropdown-a" data-toggle="dropdown">Koleksi </a>
 							<div class="dropdown-menu" aria-labelledby="dropdown-a">
@@ -90,7 +100,7 @@
 							</div>
                         </li>
                         <li class="nav-item active"><a class="nav-link " href="galeri.php">Galeri </a></li>
-						<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
                         <li><a class="hover-btn-new log" href="login.html" ><span>Admin Login</span></a></li>
@@ -108,36 +118,37 @@
             </div>
         </div>
 	</div>
-	
-    <div id="overviews" class="section lb">
+    <div id="overviews" class="section wb">
         <div class="container">
 
+
             <hr class="invis"> 
-                
-            <div class="row"> 
-                <?php
+            <?php
 							$query="select * from galeri";
 							$tampil=mysql_query($query) or die(mysql_error());
                 ?>
-                <?php while($data=mysql_fetch_array($tampil)){ 
-           		?>
-                
+            <div class="row"> 
+            <?php while($data=mysql_fetch_array($tampil)){ 
+            ?>
+                <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="icon-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                        <a class="fancybox" href="admin/gambar_galeri/<?php echo $data['gambar_galeri']; ?>" 
+                    <a class="fancybox" href="admin/gambar_galeri/<?php echo $data['gambar_galeri']; ?>" 
                         data-fancybox-group="admin/gambar_galeri">
-                        <img src="admin/gambar_galeri/<?php echo $data['gambar_galeri']; ?>"   width="150" height="150">
-                        </a>
+                        <img src="admin/gambar_galeri/<?php echo $data['gambar_galeri']; ?>" class="img-fluid">
+                    </a>
+                    
                     </div><!-- end icon-wrapper -->
-                   
-                <?php
-                }
-                ?>
-                  <hr class="hr3"> 
+                </div><!-- end col -->
+                <hr class="invis"> 
+            <?php   
+                } 
+            ?>
+            <hr class="hr3"> 
+
             </div><!-- end row -->
-          
-           
         </div><!-- end container -->
     </div><!-- end section -->
+    
 
     <footer class="footer">
         <div class="container">

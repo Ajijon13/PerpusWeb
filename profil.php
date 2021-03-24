@@ -35,10 +35,6 @@
 <!-- Modernizer for Portfolio -->
 <script src="js/modernizer.js"></script>
 
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 
@@ -58,7 +54,7 @@
     <header class="top-navbar">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img src="images/logo/logoperpus.png" alt="" class="img-fluid"  />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host"
@@ -70,13 +66,23 @@
                 <div class="collapse navbar-collapse" id="navbars-host">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
-                        <li class="nav-item active"><a class="nav-link" href="profil.php">Profil</a></li>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="" id="dropdown-a"
+                                data-toggle="dropdown">Profil</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="profil.php">Profil Perpustakaan </a>
+                                <a class="dropdown-item" href="visimisi.php">Visi & Misi </a>
+                                <a class="dropdown-item" href="struktur.php">Struktur Organisasi </a>
+                                <a class="dropdown-item" href="tatatertib.php">Tata Tertib </a>
+                                <a class="dropdown-item" href="prestasi.php">Prestasi </a>
+                            </div>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="" id="dropdown-a"
                                 data-toggle="dropdown">Koleksi</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
                                 <a class="dropdown-item" href="ebook.php">E-book </a>
-                                <a class="dropdown-item" href="hosting.html">Buku Paket </a>
+                                <a class="dropdown-item" href="buku.php">Buku Paket </a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -97,7 +103,7 @@
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="galeri.php">Galeri </a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="hover-btn-new log" href="login.html"><span>Admin Login</span></a></li>
@@ -120,7 +126,6 @@
         <div class="container">
             <div class="section-title row text-center">
                 <div class="col-md-8 offset-md-2">
-                    <h3>Profil</h3>
                     <div class="section-title row text-left">
                         <?php
                             $query= mysql_query("SELECT * FROM profil");
@@ -192,113 +197,9 @@
                 </div>
             </div><!-- end title -->
 
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                    <div class="message-box">
-                        <?php
-                    $query = mysql_query("SELECT * FROM visimisi");
-                    $tampil  = mysql_fetch_array($query);
-                    ?>
-                        <br><br><br>
-                        <h2>
-                            <center>Visi</center>
-                        </h2>
-                        <textarea disabled="disabled" class="isitext"
-                            style="height:100px; width:550px;"><?php echo $tampil['visi']; ?></textarea>
-                        <h2>
-                            <center>Misi</center>
-                        </h2>
-                        <textarea disabled="disabled" class="isitext"
-                            style="height:520px; width:550px; "><?php echo $tampil['misi']; ?></textarea>
-
-                    </div><!-- end messagebox -->
-                </div><!-- end col -->
-
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                    <div class="post-media wow fadeIn">
-                        <img src="images/foto1.png" alt="" class="img-fluid img-rounded">
-                    </div><!-- end media -->
-                </div><!-- end col -->
-            </div>
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                    <div class="post-media wow fadeIn">
-                        <img src="images/foto3.png" alt="" class="img-fluid img-rounded">
-                    </div><!-- end media -->
-                </div><!-- end col -->
-
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                    <div class="message-box">
-                        <?php
-                    $query = mysql_query("SELECT * FROM tatatertib");
-                    $tampil  = mysql_fetch_array($query);
-                    ?>
-                        <h2>
-                            <center>Tata Tertib</center>
-                        </h2>
-                        <textarea disabled="disabled" class="isitext"
-                            style="height:300px; width: 550px;"><?php echo $tampil['t_tertib']; ?></textarea>
-
-                    </div><!-- end messagebox -->
-                </div><!-- end col -->
-
-                <div class="row align-items-center">
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                        <div class="message-box">
-                            <?php
-                    $query = mysql_query("SELECT * FROM struktur");
-                    $tampil  = mysql_fetch_array($query);
-                    ?>
-                            <h1>STRUKTUR ORGANISASI</h1>
-                        </div><!-- end messagebox -->
-                    </div><!-- end col -->
-
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                        <div class="post-media wow fadeIn">
-                            <br><br><br>
-                            <div style="box-shadow:5px 5px 5px grey;">
-                                <img src="admin/gambar/<?php echo $tampil['gambar']; ?>" alt=""
-                                    class="img-fluid img-rounded">
-                            </div>
-                        </div><!-- end media -->
-                    </div><!-- end col -->
-                </div>
+          
 
             </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
-
-    <div id="testimonials" class="parallax section db parallax-off"
-        style="background-image:url('images/gb.png');">
-        <div class="container">
-            <div class="section-title text-center">
-                <h3>PRESTASI</h3>
-                <p>Perpustakaan Samudera Ilmu SMPN 2 Paciran</p>
-            </div><!-- end title -->
-            <?php
-                                $query = "select * from prestasi";
-                                $tampil=mysql_query($query) or die(mysql_error());
-            ?>
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="testi-carousel owl-carousel owl-theme">
-                    <?php while($data=mysql_fetch_array($tampil)){ 
-           	        ?>
-                        <div class="testimonial clearfix">
-                            <div class="desc">
-                                <p class="lead"><?php echo $data['keterangan'];?></p>
-                            </div>
-                            <div class="testi-meta">
-                                <img src="admin/gambar/<?php echo $data['gambar_prestasi'];?>">
-                            </div> <!-- end testi-meta -->
-                        </div><!-- end testimonial -->
-                <?php 
-                }
-                ?>
-                    </div><!-- end carousel -->  
-                </div><!-- end col -->
-            </div><!-- end row -->
-           
         </div><!-- end container -->
     </div><!-- end section -->
 

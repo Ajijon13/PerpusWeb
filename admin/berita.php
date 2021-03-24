@@ -56,16 +56,16 @@ if (empty($_SESSION['username'])){
                             <span><?php echo $_SESSION['fullname']; ?> <i class="caret"></i></span>
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                            <li class="dropdown-header text-center">Account</li>
+                            <li class="dropdown-header text-center">Akun</li>
 
                             <li>
                                 <a href="detail-admin.php?hal=edit&kd=<?php echo $_SESSION['user_id'];?>">
                                     <i class="fa fa-user fa-fw pull-right"></i>
-                                    Profile
+                                    Profil
                                 </a>
                                 <a href="admin.php">
                                     <i class="fa fa-cog fa-fw pull-right"></i>
-                                    Settings
+                                    Pengaturan
                                 </a>
                             </li>
 
@@ -141,10 +141,19 @@ $_SESSION['start_time'] = time();
                                                 id="form_tambah_berita">
 
                                                 <div class="form-group">
+                                                    <label class="col-sm-3 control-label text-right">Judul</label>
+                                                    <div class="col-sm-8">
+                                                        <input name="judul" type="text" class="form-control"
+                                                            autocomplete="off" placeholder="Judul" required="" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
                                                     <label class="col-sm-3 control-label text-right">Keterangan</label>
                                                     <div class="col-sm-8">
-                                                        <input name="keterangan" type="text" class="form-control"
-                                                            autocomplete="off" placeholder="keterangan" required="" />
+                                                    <textarea name="judul" rows="5" cols="70" style="height:300px"
+                                                            class="form-control" autocomplete="off" placeholder=""
+                                                            required=""></textarea>
                                                     </div>
                                                 </div>
 
@@ -181,6 +190,9 @@ $_SESSION['start_time'] = time();
                                     <thead>
                                         <tr>
                                             <th>
+                                                <center>Judul</center>
+                                            </th>
+                                            <th>
                                                 <center>Keterangan</center>
                                             </th>
                                             <th>
@@ -195,7 +207,10 @@ $_SESSION['start_time'] = time();
                                     <?php while($data=mysql_fetch_array($tampil))
                     { ?>
                                         <tr>
-                                            <td><a href="detail-berita.php?hal=edit&kd=<?php echo $data['id'];?>"><span class="fa fa-book"> Detail Berita</span> <?php echo $data['keterangan']; ?></a>
+                                            <td><a href="detail-berita.php?hal=edit&kd=<?php echo $data['id'];?>"><span class="fa fa-book"> Detail Berita</span> </a>
+                                            </td>
+                                            <td>
+                                            <?php echo $data['keterangan']; ?>
                                             </td>
                                             <td>
                                                 <center><img src="gambar_berita/<?php echo $data['gambar_berita']; ?>" height="100" width="100" style="border: 1px solid #333333;" />
@@ -272,11 +287,21 @@ $_SESSION['start_time'] = time();
                                                     autocomplete="off" value="" required="" />
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label class=" col-sm-3 control-label">Judul</label>
+                                            <div class="col-sm-8">
+                                                <input name="judul" type="text" id="edit-judul" class="form-control"
+                                                    autocomplete="off" value="" required="" />
+                                            </div>
+                                        </div>
+
                                         <div class="form-group">
                                             <label class=" col-sm-3 control-label">Keterangan</label>
                                             <div class="col-sm-8">
-                                                <input name="keterangan" type="text" id="edit-keterangan" class="form-control"
-                                                    autocomplete="off" value="" required="" />
+                                            <textarea name="keterangan" type="text" id="edit-keterangan" style="height:300px"
+                                                    class="form-control" autocomplete="off"
+                                                    required=""><?php echo $data['keterangan']; ?></textarea>
                                             </div>
                                         </div>
 
@@ -317,15 +342,6 @@ $_SESSION['start_time'] = time();
     <script src="assets/js/sweetalert2.all.min.js" type="text/javascript"></script>
      <!-- jQuery UI 1.10.3 -->
      <script src="assets/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
-    <!-- Bootstrap -->
-    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- daterangepicker -->
-    <script src="assets/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
-
-    <script src="assets/js/plugins/chart.js" type="text/javascript"></script>
-    <!-- iCheck -->
-    <script src="assets/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-
     <!-- Director App -->
     <script src="assets/js/Director/app.js" type="text/javascript"></script>
 
@@ -415,6 +431,7 @@ $_SESSION['start_time'] = time();
                         if(data.status == "sukses"){
 
                             $('#edit-id').val(data.data.id);
+                            $('#edit-judul').val(data.data.judul);
                             $('#edit-keterangan').val(data.data.keterangan);
                             $('#edit-gambar_berita').attr("src","gambar_berita/" + data.data.gambar_berita);
                             $('#modal_edit').modal('show');

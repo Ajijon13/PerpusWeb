@@ -1,4 +1,4 @@
-                            <img src="../images/logo/logo1.png"/>
+                            <img src="../images/logo/logop.png"/>
                             <ul class="sidebar-menu">
                                 <li class="active">
                                     <a href="index.php">

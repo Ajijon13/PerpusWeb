@@ -60,7 +60,17 @@
 				<div class="collapse navbar-collapse" id="navbars-host">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
-						<li class="nav-item"><a class="nav-link" href="profil.php">Profil</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="dropdown-a"
+                                data-toggle="dropdown">Profil</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="profil.php">Profil Perpustakaan </a>
+                                <a class="dropdown-item" href="visimisi.php">Visi & Misi </a>
+                                <a class="dropdown-item" href="struktur.php">Struktur Organisasi </a>
+                                <a class="dropdown-item" href="tatatertib.php">Tata Tertib </a>
+                                <a class="dropdown-item" href="prestasi.php">Prestasi </a>
+                            </div>
+                        </li>
 						<li class="nav-item dropdown ">
 							<a class="nav-link dropdown-toggle" href="" id="dropdown-a" data-toggle="dropdown">Buku Digital </a>
 							<div class="dropdown-menu" aria-labelledby="dropdown-a">
@@ -84,7 +94,7 @@
 							</div>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="galeri.php">Galeri </a></li>
-						<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
                         <li><a class="hover-btn-new log" href="login.html" ><span>Admin Login</span></a></li>

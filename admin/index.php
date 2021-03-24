@@ -11,7 +11,7 @@ if (empty($_SESSION['username'])){
 <head>
     <!-- Ajijon -->
     <meta charset="UTF-8">
-    <title>PERPUSTAKAAN SAMUDERA ILMU</title>
+    <title>Perpustakaan Samudera Ilmu</title>
     <!-- bootstrap 3.0.2 -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
@@ -32,7 +32,7 @@ if (empty($_SESSION['username'])){
     <!-- header logo: style can be found in header.less -->
     <header class="header">
         <a href="index.php" class="logo">
-            <br><strong> PERPUSTAKAAN SMPN 2 PACIRAN</Strong>
+            <br><strong> PERPUSTAKAAN SAMUDERA ILMU</Strong>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -190,7 +190,7 @@ if (empty($_SESSION['username'])){
 
 
                         <div class="col-md-4">
-                           <center><img src="../images/logo/logop.png" class="img-fluid"/></center>
+                           <center><img src="../images/logo/logo1.png" class="img-fluid"/></center>
                         </div>
 
                         <div class="col-md-7">

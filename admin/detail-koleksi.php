@@ -168,8 +168,8 @@ $_SESSION['start_time'] = time();
                         <td><?php echo $data['total']; ?></td>
                         </tr>
                         <tr>
-                        <td><strong>Tanggal Input</strong></td>
-                        <td><?php echo $data['tgl_input']; ?></td>
+                        <td><strong>Tahun Pelajaran</strong></td>
+                        <td><?php echo $data['th_pel']; ?></td>
                         </tr>
                    </table>
                   

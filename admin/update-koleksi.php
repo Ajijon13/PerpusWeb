@@ -2,14 +2,14 @@
         include "../conn.php";
  
             $id = $_POST['id'];
-            $tgl_input = $_POST['tgl_input'];
+            $th_pel = $_POST['th_pel'];
             $koleksi = $_POST['koleksi'];
             $keterangan = $_POST['keterangan'];
             $jumlah = $_POST['jumlah'];
             $tambahan  = $_POST['tambahan'];
             $total = $_POST['total'];
             
-        $query = mysql_query("UPDATE `koleksi` SET `tgl_input`='$tgl_input',`koleksi`='$koleksi',`keterangan`='$keterangan',`jumlah`='$jumlah',`tambahan`='$tambahan',`total`='$total' WHERE id='$id'");
+        $query = mysql_query("UPDATE `koleksi` SET `th_pel`='$th_pel',`koleksi`='$koleksi',`keterangan`='$keterangan',`jumlah`='$jumlah',`tambahan`='$tambahan',`total`='$total' WHERE id='$id'");
         if($query){
 
             $data = array(
