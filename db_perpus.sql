@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2021 at 05:10 PM
+-- Generation Time: Apr 11, 2021 at 02:13 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_perpuspro`
+-- Database: `db_perpus`
 --
 
 -- --------------------------------------------------------
@@ -49,6 +49,7 @@ INSERT INTO `admin` (`user_id`, `username`, `password`, `fullname`, `gambar_admi
 
 CREATE TABLE `berita` (
   `id` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
   `keterangan` longtext NOT NULL,
   `gambar_berita` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -57,9 +58,11 @@ CREATE TABLE `berita` (
 -- Dumping data for table `berita`
 --
 
-INSERT INTO `berita` (`id`, `keterangan`, `gambar_berita`) VALUES
-(4, 'aaaaaaaaaaaaaaa', 'index.jpg'),
-(5, 'aaaaaaaaaaaaaaaaaaaaaaa', '500018100731_44914.jpg');
+INSERT INTO `berita` (`id`, `judul`, `keterangan`, `gambar_berita`) VALUES
+(4, 'judul nya apa ya', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'index.jpg'),
+(5, 'judul nya apa ya', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '500018100731_44914.jpg'),
+(6, 'judul nya apa ya', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'IMG-20190910-WA0037.jpg'),
+(7, 'judul nya apa ya', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'IMG-20190910-WA0037.jpg');
 
 -- --------------------------------------------------------
 
@@ -84,7 +87,7 @@ CREATE TABLE `buku_paket` (
 --
 
 INSERT INTO `buku_paket` (`id`, `judul`, `pengarang`, `tempatdanpenerbit`, `isbn`, `jumlahhalaman`, `kategori`, `file_buku`, `gambar_buku`) VALUES
-(1, 'Bahasa Indonesia Kelas IX Semester Ganjil', 'MGMP Bahasa Indonesia', 'jakarta / Erlangga ', '98756432889', '270 hlm', '800 Sastra', 'CHEK LIST SKMT CALON PENERIMA TPG GPAI 2019.pdf', 'Undangan SKMT beserta lampirannya.pdf');
+(1, 'Bahasa Indonesia Kelas IX Semester Ganjil', 'MGMP Bahasa Indonesia', 'jakarta / Erlangga ', '98756432889', '270 hlm', '800 Sastra', 'Bahasa Inggris (Buku Siswa) ( PDFDrive ).pdf', 'jon copy.jpg');
 
 -- --------------------------------------------------------
 
@@ -112,7 +115,8 @@ INSERT INTO `data_ebook` (`id`, `judul`, `pengarang`, `tempatdanpenerbit`, `isbn
 (87, 'Laskar Pelangi', 'Andrea Hirata', 'Erlangga / Jakarta', '19876548765', '150 hlm', '800 Sastra', 'CHEK LIST SKMT CALON PENERIMA TPG GPAI 2019.pdf', 'IMG-20200525-WA0003.jpg'),
 (90, 'Hati Suhita', 'Nur Laila', 'Cahaya Media / Solo', '985437907123', '120 hlm', '800 Sastra', 'CHEK LIST SKMT CALON PENERIMA TPG GPAI 2019.pdf', 'IMG-20200711-WA0002.jpg'),
 (91, 'Pendidikan Anak Usia Dini', 'Adji Saputra', 'Mentari Book / Surabaya', 't876580995432', '92 hlm', '300 Ilmu-ilmu Sosial', 'CHEK LIST SKMT CALON PENERIMA TPG GPAI 2019.pdf', 'rafa.png'),
-(93, 'Kiat-kiat Menjadi Sukses', 'Achmad Ahsan', 'Buku Kita / Bandung', '98765438765', '97 hlm', '100 Filsafat', 'CHEK LIST SKMT CALON PENERIMA TPG GPAI 2019.pdf', 'foto guru.jpg');
+(93, 'Kiat-kiat Menjadi Sukses', 'Achmad Ahsan', 'Buku Kita / Bandung', '98765438765', '97 hlm', '100 Filsafat', 'CHEK LIST SKMT CALON PENERIMA TPG GPAI 2019.pdf', 'foto guru.jpg'),
+(94, 'aaaaaaaaa', 'aaaaaa', 'aaaaaa', 'aaaaaaaaa', 'aaaaaaaaaaaa', '800 Sastra', 'Bahasa Inggris (Buku Siswa) ( PDFDrive ).pdf', 'jon copy.jpg');
 
 -- --------------------------------------------------------
 
@@ -132,7 +136,12 @@ CREATE TABLE `galeri` (
 
 INSERT INTO `galeri` (`id`, `gambar_galeri`, `keterangan`) VALUES
 (8, 'IMG-20200730-WA0001.jpg', 'Bocah Sangar Sak Deso'),
-(9, 'rafa.png.jpg', 'Woy Apa Lihat Lihat');
+(9, 'rafa.png.jpg', 'Woy Apa Lihat Lihat'),
+(10, '6-62671_pesawat-clipart-gambar-pesawat-kartun.jpg', 'yossaaa'),
+(11, 'b8ee268e10875ff4cd88ea8764bb50ca.png_wh860.png', 'awjakdlhad'),
+(12, 'kisspng-animation-drawing-clip-art-blue-cartoon-ship-5a97d9908aac78.589473521519901072568.jpg', 'akjsjkjvakac'),
+(13, 'mobil.png', 'asdafa'),
+(14, 'pngtree-simulation-cartoon-senior-blue-sedan-car-illustration-image_1316187.jpg', 'asfaf');
 
 -- --------------------------------------------------------
 
@@ -161,7 +170,7 @@ INSERT INTO `inov_layanan` (`id`, `keterangan`, `gambar_inovasi`) VALUES
 
 CREATE TABLE `koleksi` (
   `id` int(11) NOT NULL,
-  `tgl_input` date NOT NULL,
+  `th_pel` varchar(55) NOT NULL,
   `koleksi` varchar(255) NOT NULL,
   `keterangan` varchar(255) NOT NULL,
   `jumlah` varchar(255) NOT NULL,
@@ -173,11 +182,10 @@ CREATE TABLE `koleksi` (
 -- Dumping data for table `koleksi`
 --
 
-INSERT INTO `koleksi` (`id`, `tgl_input`, `koleksi`, `keterangan`, `jumlah`, `tambahan`, `total`) VALUES
-(3, '2021-02-25', 'Cetak', 'aaaaaa', '1', '11', '1'),
-(4, '2021-02-25', 'Non Cetak', 'janajha', '1', '1', '1'),
-(5, '2021-02-25', 'Cetak', 'aaaaa', '1', '1', '5'),
-(6, '2021-03-01', 'Non Cetak', 'fxfgxjfjg', '1', '2', '3');
+INSERT INTO `koleksi` (`id`, `th_pel`, `koleksi`, `keterangan`, `jumlah`, `tambahan`, `total`) VALUES
+(3, '2018-2019', 'Cetak', 'koleksi umum', '1', '11', '5000'),
+(4, '2019-2020', 'Non Cetak', 'VCD', '1', '1', '100'),
+(5, '2019-2020', 'Cetak', 'koleksi refrensi', '1', '1', '2000');
 
 -- --------------------------------------------------------
 
@@ -289,7 +297,9 @@ CREATE TABLE `studibanding` (
 
 INSERT INTO `studibanding` (`id`, `kunjungan`, `keterangan`, `gambar_studi`) VALUES
 (1, 'masuk', 'SMP 22 Surabaya', 'post.png'),
-(6, 'masuk', 'qqqqqqqqqqqqqqqqqqqq', 'Picture1.jpg');
+(6, 'masuk', 'qqqqqqqqqqqqqqqqqqqq', 'Picture1.jpg'),
+(7, 'masuk', 'wqdqwdwqdqwdqwd', 'b8ee268e10875ff4cd88ea8764bb50ca.png_wh860.png'),
+(8, 'masuk', 'sdqd', 'mobil.png');
 
 -- --------------------------------------------------------
 
@@ -429,7 +439,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `buku_paket`
 --
@@ -439,12 +449,12 @@ ALTER TABLE `buku_paket`
 -- AUTO_INCREMENT for table `data_ebook`
 --
 ALTER TABLE `data_ebook`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 --
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `inov_layanan`
 --
@@ -454,7 +464,7 @@ ALTER TABLE `inov_layanan`
 -- AUTO_INCREMENT for table `koleksi`
 --
 ALTER TABLE `koleksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `layanan`
 --
@@ -479,7 +489,7 @@ ALTER TABLE `struktur`
 -- AUTO_INCREMENT for table `studibanding`
 --
 ALTER TABLE `studibanding`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `tatatertib`
 --
