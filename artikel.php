@@ -32,6 +32,7 @@
 <link rel="stylesheet" href="css/responsive.css">
 <!-- Custom CSS -->
 <link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="admin/assets/fancybox/dist/jquery.fancybox.min.css">
 <!-- Modernizer for Portfolio -->
 <script src="js/modernizer.js"></script>
 
@@ -113,114 +114,32 @@
 	</header>
 	<!-- End header -->
 
-	<div id="carouselExampleControls" class="carousel slide bs-slider box-slider" data-ride="carousel">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
-			<li data-target="#carouselExampleControls" data-slide-to="1"></li>
-			<li data-target="#carouselExampleControls" data-slide-to="2"></li>
-		</ol>
-		<div class="carousel-inner" role="listbox">
-			<div class="carousel-item active">
-				<div id="home" class="first-section" style="background-image:url('images/foto1.png');">
-					<div class="dtab">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-12 col-sm-12 text-right">
-									<div class="big-tagline">
-										<h2 class="animate__animated animate__fadeInDown">Selamat Datang Di<strong>
-												Perpustakaan</strong></h2>
-										<p class="lead">SMPN 2 PACIRAN Pondok Pesantren Sunan Drajat </p>
-									</div>
-								</div>
-							</div><!-- end row -->
-						</div><!-- end container -->
-					</div>
-				</div><!-- end section -->
-			</div>
-			<div class="carousel-item">
-				<div id="home" class="first-section" style="background-image:url('images/foto4.jpg');">
-					<div class="dtab">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-12 col-sm-12 text-left">
-									<div class="big-tagline">
-										<h3 data-animation="animated zoomInRight"><strong>PERPUSTAKAAN </strong> ADALAH
-											JANTUNG SEKOLAH</h3>
-									</div>
-								</div>
-							</div><!-- end row -->
-						</div><!-- end container -->
-					</div>
-				</div><!-- end section -->
-			</div>
-			<div class="carousel-item">
-				<div id="home" class="first-section" style="background-image:url('images/foto6.jpg');">
-					<div class="dtab">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-12 col-sm-12 text-center">
-									<div class="big-tagline">
-										<h2 data-animation="animated zoomInRight"><strong><i>"NO GAIN WITHOUT
-													PAIN"</i></strong></h2>
-									</div>
-								</div>
-							</div><!-- end row -->
-						</div><!-- end container -->
-					</div>
-				</div><!-- end section -->
-			</div>
-			<!-- Left Control -->
-			<a class="new-effect carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-				<span class="fa fa-angle-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-
-			<!-- Right Control -->
-			<a class="new-effect carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-				<span class="fa fa-angle-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
+	<div class="all-title-box">
+        <div class="all-title-box-tembus">
+		    <div class="container text-center">
+			    <h1>Berita Kegiatan</h1>
+            </div>
+        </div>
 	</div>
 
-	<div id="overviews" class="section wb"></div>
+	<div id="overviews" class="section wb">
+		<div class="container">
+			<div class="section-title row text-center">
+				<div class="col-md-8 offset-md-2">
+						<?php
 
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-			<h2 class="text-center">BERITA KEGIATAN</h2>
-			</div>
-		</div>
-		<hr>
-		<div class="row">
-
-			<?php
-				$query="select * from berita";
-				$tampil=mysql_query($query) or die(mysql_error());
-
-				while($data=mysql_fetch_array($tampil)){ 
-			?>
-			<div class="col col-md-4 col-sm-6 mb-2 d-flex justify-content-center">
-				<div class="card" style="width:300px">
-					<div style="height: 350px" class="d-flex align-items-center mb-0">
-						<img class="card-img-top" style="max-height: 350px" src=admin/gambar_berita/<?php echo $data['gambar_berita']; ?> alt="Card image" style="width:100%">
-					</div>
-					<div class="card-body">
-						<h4 class="card-title"><strong><?php echo $data['judul']; ?></strong></h4>
-						<p class="card-text"><?php echo substr ($data['keterangan'], 0, 250); ?>...</p>
-						<a href="artikel.php?id_berita=<?php echo $data['id'] ?>" class="btn btn-primary">Baca Selengkapnya</a>
-					</div>
+						$query= mysql_query("SELECT * FROM berita WHERE id='$_GET[id_berita]'");
+						$tampil = mysql_fetch_array($query);
+						$judul = $tampil['judul'];
+						$keterangan = $tampil['keterangan'];
+						$gambar_berita = $tampil['gambar_berita'];
+						?>
 				</div>
 			</div>
-
-			<?php   
-				} 
-			?>
- 
 		</div>
-
 	</div>
+
+	
 
 		<section class="page-section">
 			<div class="container">
@@ -279,7 +198,7 @@
 		<!-- ALL PLUGINS -->
 		<script src="js/custom.js"></script>
 		<script src="js/timeline.min.js"></script>
-		
+		<script src="admin/assets/fancybox/dist/jquery.fancybox.min.js"></script>
 		<script>
 			timeline(document.querySelectorAll('.timeline'), {
 				forceVerticalMode: 700,
@@ -288,7 +207,11 @@
 				visibleItems: 4
 			});
 		</script>
-
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$(".fancybox").fancybox();
+			});
+		</script>
 </body>
 
 </html>

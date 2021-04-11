@@ -120,7 +120,7 @@
         <div class="row mb-6">
 		    <div class="col-sm-4">
 		        <div class="form-group form-inline">
-                <label class="tulisan"><h1>Kategori</h1>&nbsp;</label>
+                <label class="tulisan h1"><h1>Kategori</h1>&nbsp;</label>
 		            <select name="s_kategori" id="s_kategori" class="form-control" style="width:500px">
 		                <option value=""></option>
 		                <option value="000 Karya Umum">000 Karya Umum</option>
@@ -138,7 +138,7 @@
 		    </div>
 		    <div class="col-sm-4">
 		        <div class="form-group form-inline">
-                <label class="tulisan"><h1>Kata Kunci</h1>&nbsp;</label>
+                <label class="tulisan h1"><h1>Kata Kunci</h1>&nbsp;</label>
                     <input type="text" name="s_keyword" id="s_keyword" class="form-control" style="width:500px">
                 </div>
 		    </div>

@@ -55,7 +55,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.php">
-                    <img src="images/logo/logoperpus.png" alt="" class="img-fluid"  />
+                    <img src="images/logo/logoperpus.png" alt="" class="img-fluid" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host"
                     aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
@@ -122,67 +122,35 @@
         </div>
     </div>
 
-    <div id="overviews" class="section lb">
-        <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                        <div class="message-box">
-                            <?php
-                    $query = mysql_query("SELECT * FROM struktur");
-                    $tampil  = mysql_fetch_array($query);
-                    ?>
-                            <h1>STRUKTUR ORGANISASI</h1>
-                        </div><!-- end messagebox -->
-                    </div><!-- end col -->
+    <div id="overviews" class="section wb"></div>
 
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                        <div class="post-media wow fadeIn">
-                            <br><br><br>
-                            <div style="box-shadow:5px 5px 5px grey;">
-                                <img src="admin/gambar/<?php echo $tampil['gambar']; ?>" alt=""
-                                    class="img-fluid img-rounded">
-                            </div>
-                        </div><!-- end media -->
-                    </div><!-- end col -->
-                </div>
+    <div class="container">
+        <div class="row">
 
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
-
-    <div id="testimonials" class="parallax section db parallax-off"
-        style="background-image:url('images/gb.png');">
-        <div class="container">
-            <div class="section-title text-center">
-                <h3>PRESTASI</h3>
-                <p>Perpustakaan Samudera Ilmu SMPN 2 Paciran</p>
-            </div><!-- end title -->
             <?php
-                                $query = "select * from prestasi";
-                                $tampil=mysql_query($query) or die(mysql_error());
-            ?>
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="testi-carousel owl-carousel owl-theme">
-                    <?php while($data=mysql_fetch_array($tampil)){ 
-           	        ?>
-                        <div class="testimonial clearfix">
-                            <div class="desc">
-                                <p class="lead"><?php echo $data['keterangan'];?></p>
-                            </div>
-                            <div class="testi-meta">
-                                <img src="admin/gambar/<?php echo $data['gambar_prestasi'];?>">
-                            </div> <!-- end testi-meta -->
-                        </div><!-- end testimonial -->
-                <?php 
-                }
-                ?>
-                    </div><!-- end carousel -->  
-                </div><!-- end col -->
-            </div><!-- end row -->
-           
-        </div><!-- end container -->
-    </div><!-- end section -->
+            $query="select * from prestasi";
+            $tampil=mysql_query($query) or die(mysql_error());
+
+            while($data=mysql_fetch_array($tampil)){ 
+        ?>
+            <div class="col col-md-4 col-sm-6 mb-3 d-flex justify-content-center">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" style="max-height: 350px"
+                        src=admin/gambar_prestasi/<?php echo $data['gambar_prestasi']; ?> alt="Card image"
+                        style="width:100%">
+                    <div class="card-body">
+                        <p class="card-text"><center><?php echo $data['keterangan']; ?></center></p>
+                    </div>
+                </div>
+            </div>
+
+            <?php   
+            } 
+        ?>
+
+        </div>
+
+    </div>
 
     <footer class="footer">
         <div class="container">
